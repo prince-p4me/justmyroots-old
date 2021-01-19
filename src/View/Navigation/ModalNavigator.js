@@ -1,0 +1,43 @@
+import HomeNavigator from "./HomeNavigator";
+import AddAddressForm from "../Address/AddAddress.container";
+import SearchProducts from "../Product/SearchProducts.container";
+import LoginNavigator from "./LoginNavigator";
+
+import { createStackNavigator } from "react-navigation";
+import { Colors } from "../Themes";
+
+const AddressNavigator = createStackNavigator(
+  {
+    HomeNavigator: {
+      screen: HomeNavigator,
+      navigationOptions: {
+        title: "Home"
+      }
+    },
+    SearchProducts: {
+      screen: SearchProducts,
+      navigationOptions: {
+        title: "Search Products"
+      }
+    },
+    AddAddress: {
+      screen: AddAddressForm,
+      navigationOptions: {
+        title: "Add Address"
+      }
+    },
+    LoginNavigator: {
+      screen: LoginNavigator,
+      navigationOptions: {
+        title: "OTP"
+      }
+    }
+  },
+  {
+    initialRouteName: "HomeNavigator",
+    mode: "modal",
+    headerMode: "none"
+  }
+);
+
+export default AddressNavigator;
