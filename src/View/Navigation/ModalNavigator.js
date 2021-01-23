@@ -1,4 +1,5 @@
 import HomeNavigator from "./HomeNavigator";
+import SearchNavigator from "./SearchNavigator";
 import AddAddressForm from "../Address/AddAddress.container";
 import SearchProducts from "../Product/SearchProducts.container";
 import LoginNavigator from "./LoginNavigator";
@@ -14,24 +15,24 @@ const AddressNavigator = createStackNavigator(
         title: "Home"
       }
     },
-    SearchProducts: {
-      screen: SearchProducts,
-      navigationOptions: {
-        title: "Search Products"
-      }
-    },
-    AddAddress: {
-      screen: AddAddressForm,
-      navigationOptions: {
-        title: "Add Address"
-      }
-    },
-    LoginNavigator: {
-      screen: LoginNavigator,
-      navigationOptions: {
-        title: "OTP"
-      }
-    }
+    // SearchProducts: {
+    //   screen: SearchNavigator,
+    //   navigationOptions: {
+    //     title: "Search Products"
+    //   }
+    // },
+    // AddAddress: {
+    //   screen: AddAddressForm,
+    //   navigationOptions: {
+    //     title: "Add Address"
+    //   }
+    // },
+    // LoginNavigator: {
+    //   screen: LoginNavigator,
+    //   navigationOptions: {
+    //     title: "OTP"
+    //   }
+    // }
   },
   {
     initialRouteName: "HomeNavigator",

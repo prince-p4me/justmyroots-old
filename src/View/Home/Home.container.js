@@ -11,14 +11,14 @@ class Home extends Component {
     this.state = {};
   }
 
-  //   static navigationOptions = {
-  //     title: "SELECT YOUR CUP",
-  //     headerTitleStyle: { textAlign: "center", alignSelf: "center" }
-  //   };
+  static navigationOptions = {
+    header: null
+  }
 
   locationClicked = () => {
     this.props.navigation.navigate("LaunchNavigator");
   };
+
   shouldComponentUpdate(nextProps, nextState, nextContext) {
     const { shippingLocation } = nextProps;
     if (shippingLocation.id != this.props.shippingLocation.id) {
@@ -26,6 +26,7 @@ class Home extends Component {
     }
     return true;
   }
+
   componentDidMount() {
     if (!this.props.shippingLocation.id) {
       this.props.navigation.navigate("LaunchNavigator");
@@ -35,6 +36,7 @@ class Home extends Component {
     };
     this.props.bannersRequest(this.props.shippingLocation.id);
   }
+
   bannerClicked = item => {
     switch (item.link_type) {
       case "P":

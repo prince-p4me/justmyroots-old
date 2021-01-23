@@ -14,7 +14,7 @@ const SwitchComponent = ({ onValueChange, value, title, note }) => (
       <Switch
         trackColor={{
           false: Colors.lightCharcoal,
-          true: Colors.facebook
+          true: Colors.ember
         }}
         value={value}
         onValueChange={onValueChange}

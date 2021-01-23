@@ -17,7 +17,7 @@ const colors = {
   leaf: "#818e27",
   bloodOrange: "#8e2781",
   snow: "white",
-  ember: "rgba(164, 0, 48, 0.5)",
+  ember: "#a11f22",
   fire: "#e73536",
   drawer: "rgba(30, 30, 29, 0.95)",
   eggplant: "#251a34",

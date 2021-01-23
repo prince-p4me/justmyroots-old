@@ -15,7 +15,7 @@ class ProductDetail extends Component {
   // static navigationOptions = {
   //   headerRight: (
   //     <Icon
-  //       style={{ marginRight: 10, color: Colors.facebook }}
+  //       style={{ marginRight: 10, color: Colors.ember }}
   //       type="FontAwesome"
   //       name="shopping-cart"
   //     />
@@ -112,6 +112,7 @@ class ProductDetail extends Component {
   colorClicked = color => {
     this.props.setProductColor(color);
   };
+  
   optionClicked = option => {
     switch (option.type) {
       case "text":

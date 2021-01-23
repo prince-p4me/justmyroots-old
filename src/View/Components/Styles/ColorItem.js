@@ -20,10 +20,10 @@ const styles = StyleSheet.create({
     padding: 5,
     paddingRight: 15,
     paddingLeft: 15,
-    borderColor: Colors.facebook,
+    borderColor: Colors.ember,
     borderWidth: 5,
     borderRadius: 25
-    // backgroundColor: Colors.facebook
+    // backgroundColor: Colors.ember
   },
   selectedText: {
     color: Colors.snow

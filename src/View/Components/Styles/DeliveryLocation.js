@@ -25,17 +25,17 @@ const styles = StyleSheet.create({
     // padding: 5,
     // paddingRight: 15,
     // paddingLeft: 15,
-    // borderColor: Colors.facebook,
+    // borderColor: Colors.ember,
     // borderWidth: 1,
     // borderRadius: 25,
-    // backgroundColor: Colors.facebook
+    // backgroundColor: Colors.ember
   },
   locationText: {
-    color: Colors.facebook,
+    color: Colors.ember,
     fontSize: 15
   },
   locationIcon: {
-    color: Colors.facebook,
+    color: Colors.ember,
     fontSize: 18
   }
 });

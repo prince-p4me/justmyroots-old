@@ -3,13 +3,13 @@ import { Fonts, Metrics, Colors } from "../../Themes";
 
 const styles = StyleSheet.create({
   button: {
-    backgroundColor: Colors.facebook
+    backgroundColor: Colors.ember
   },
   buttonTransparent: {
     backgroundColor: Colors.snow
   },
   text: {
-    color: Colors.facebook
+    color: Colors.ember
   }
 });
 

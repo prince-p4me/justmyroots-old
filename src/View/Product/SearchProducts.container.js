@@ -4,6 +4,10 @@ import actions from "../../Store/Redux/product";
 import SearchProductsPage from "./SearchProducts.page";
 
 class SearchProducts extends Component {
+  static navigationOptions = {
+    header: null
+  }
+  
   searchProducts = searchStr => {
     if (searchStr.length >= 3) {
       let parameters = {
@@ -18,6 +22,7 @@ class SearchProducts extends Component {
     this.props.resetProductSearch();
     this.props.navigation.goBack();
   };
+
   itemClicked = item => {
     this.props.resetProductSearch();
     this.props.navigation.goBack();

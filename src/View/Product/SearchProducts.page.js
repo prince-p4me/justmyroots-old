@@ -29,7 +29,7 @@ const SearchProducts = ({
           <Input placeholder="Search Products" onChangeText={searchProducts} />
         </Item>
         <Button transparent block onPress={closeSearch}>
-          <Text style={{ color: Colors.facebook }}>Cancel</Text>
+          <Text style={{ color: Colors.ember }}>Cancel</Text>
         </Button>
       </Header>
       <Content padder>

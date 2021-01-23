@@ -37,7 +37,7 @@ const Order = ({
             <Switch
               trackColor={{
                 false: Colors.lightCharcoal,
-                true: Colors.facebook
+                true: Colors.ember
               }}
               value={useLoyaltyPoints}
               onValueChange={changeLoyaltyStatus}

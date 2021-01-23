@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
   },
   reviews: {
     flex: 1,
-    color: Colors.facebook,
+    color: Colors.ember,
     fontSize: Fonts.size.regular
   },
   city: {
@@ -84,10 +84,10 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   iconPlus: {
-    color: Colors.facebook
+    color: Colors.ember
   },
   iconMinus: {
-    color: Colors.facebook
+    color: Colors.ember
   },
   quantity: {
     ...Fonts.style.h4,
@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
     // backgroundColor: "blue"k
   },
   footer: {
-    backgroundColor: Colors.facebook,
+    backgroundColor: Colors.ember,
     justifyContent: "center",
     height: 10
   },

@@ -3,7 +3,7 @@ import { Fonts, Metrics, Colors } from "../../Themes";
 const styles = StyleSheet.create({
   nextButton: {
     // ...Fonts.style.h6,
-    backgroundColor: Colors.facebook,
+    backgroundColor: Colors.ember,
     // fontWeight: "bold",
     marginTop: 30
   },
@@ -16,10 +16,10 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   positiveIcon: {
-    color: Colors.facebook
+    color: Colors.ember
   },
   positiveText: {
-    color: Colors.facebook
+    color: Colors.ember
   },
   negativeIcon: {
     color: Colors.lightCharcoal

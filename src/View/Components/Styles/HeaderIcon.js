@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 import { Fonts, Metrics, Colors } from "../../Themes";
 const styles = StyleSheet.create({
   badge: {
-    backgroundColor: Colors.facebook,
+    backgroundColor: Colors.ember,
     marginLeft: -20,
     marginRight: 5
   },

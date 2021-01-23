@@ -3,14 +3,14 @@ import { Fonts, Metrics, Colors } from "../../Themes";
 const styles = StyleSheet.create({
   card: {
     // backgroundColor: Colors.lightCharcoal,
-    borderColor: Colors.facebook,
+    borderColor: Colors.ember,
     borderWidth: 3
   },
   name: {
     fontWeight: "bold"
   },
   icon: {
-    color: Colors.facebook
+    color: Colors.ember
   }
 });
 

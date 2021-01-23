@@ -1,4 +1,4 @@
-import { createBottomTabNavigator } from "react-navigation";
+import { NavigationActions,createBottomTabNavigator } from "react-navigation";
 import CategoriesNavigator from "./CategoriesNavigator";
 import ShopByNavigator from "./ShopByNavigator";
 import DfhModalNavigator from "./DfhModalNavigator";
@@ -9,18 +9,22 @@ import React from "react";
 import { Colors } from "../Themes";
 import SearchProducts from "../Product/SearchProducts.container";
 import CartModalNavigator from "./CartModalNavigator";
+import SearchNavigator from "./SearchNavigator";
+import MoreNavigator from "./MoreNavigator";
+import HomeNavigator from "./HomeNavigator";
 
 export default createBottomTabNavigator(
   {
-    Home: ModalNavigator,
+    Home: HomeNavigator,
     // Categories: CategoriesNavigator,
     // ShopBy: ShopByNavigator,
     // DFH: DfhModalNavigator,
-    Search:SearchProducts,
+    Search:SearchNavigator,
     Cart:CartModalNavigator,
-    Account: LoginModalNavigator
+    Account: MoreNavigator
   },
   {
+    // initialRouteName: "Search",
     navigationOptions: ({ navigation }) => ({
       tabBarIcon: ({ focused, horizontal, tintColor }) => {
         const { routeName } = navigation.state;
@@ -41,14 +45,19 @@ export default createBottomTabNavigator(
         // icon component from react-native-vector-icons
         return (
           <Icon name={iconName} size={horizontal ? 20 : 25} color={tintColor} />
-
-          // <Ionicons
-          //   name={iconName}
-          //   size={horizontal ? 20 : 25}
-          //   color={tintColor}
-          // />
         );
-      }
+      },
+      // tabBarOnPress: () => {
+      //   const { routeName } = navigation.state;
+        // if (routeName=="Search") {
+        //   console.warn("navigating to top");
+        //   navigation.popToTop(); 
+        //   navigation.navigate(navigation.state.routeName);
+        // } else {
+        //   navigation.navigate(routeName);
+        //   console.warn("navigating to "+routeName);
+        // }
+      // },
     }),
     tabBarOptions: {
       activeTintColor: Colors.ember,

@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
   },
   startOrderText: {
     // ...Fonts.style.h6,
-    backgroundColor: Colors.facebook,
+    backgroundColor: Colors.ember,
     // fontWeight: "bold",
     marginTop: 30
   },

@@ -1,4 +1,5 @@
 import { createStackNavigator } from "react-navigation";
+import { Platform } from "react-native";
 import Cart from "../Cart/Cart.container";
 import SelectDeliveryDate from "../Cart/SelectDeliveryDate.container";
 import SelectTimeSlot from "../Cart/SelectTimeSlot.container";
@@ -8,6 +9,15 @@ import SelectOption from "../Product/SelectOption.container";
 import SetPreferenceText from "../Product/SetPreferenceText.container";
 import MultiSelect from "../Product/MultiSelect.container";
 import { Colors } from "../Themes";
+import AddAddressForm from "../Address/AddAddress.container";
+
+// import Cart from "./CartModalNavigator";
+import OrderSummary from "../Order/OrderSummary.container";
+import PaymentMethods from "../Order/PaymentMethods.container";
+import Address from "../Address/Address.container";
+// import SearchProducts from "../Product/SearchProducts.container";
+import PaymentGateway from "../Order/PaymentGateway";
+import LoginNavigator from "./LoginNavigator";
 
 const CartModalNavigator = createStackNavigator(
   {
@@ -58,12 +68,57 @@ const CartModalNavigator = createStackNavigator(
       navigationOptions: {
         title: "Select Option"
       }
+    },
+    ShippingAddress: {
+      screen: Address,
+      navigationOptions: {
+        title: "Shipping Address"
+      }
+    },
+    AddAddress: {
+      screen: AddAddressForm,
+      navigationOptions: {
+        title: "Add Address"
+      }
+    },
+    BillingAddress: {
+      screen: Address,
+      navigationOptions: {
+        title: "Billing Address"
+      }
+    },
+    OrderSummary: {
+      screen: OrderSummary,
+      navigationOptions: {
+        title: "Order Summary"
+      }
+    },
+    PaymentMethods: {
+      screen: PaymentMethods,
+      navigationOptions: {
+        title: "Payment"
+      }
+    },
+    PaymentGateway: {
+      screen: PaymentGateway,
+      navigationOptions: {
+        title: "Pay"
+      }
     }
   },
   {
     initialRouteName: "Cart",
     mode: "modal",
-    headerMode: "none"
+    navigationOptions: ({ navigation }) => ({
+      headerTintColor: Colors.ember,
+      headerTitleStyle: {
+        ...Platform.select({
+          ios: { fontFamily: "Arial",fontSize:14 },
+          android: { fontFamily: "Roboto",fontSize:14 }
+        })
+      }
+    })
+    // headerMode: "none"
   }
 );
 

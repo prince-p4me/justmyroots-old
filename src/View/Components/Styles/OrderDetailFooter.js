@@ -22,12 +22,12 @@ const styles = StyleSheet.create({
   },
   leftBold: {
     flex: 1,
-    // color: Colors.facebook,
+    // color: Colors.ember,
     fontSize: Fonts.size.regular,
     fontWeight: "bold"
   },
   rightBold: {
-    // color: Colors.facebook,
+    // color: Colors.ember,
     fontSize: Fonts.size.regular,
     fontWeight: "bold"
   },
@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
   delivery: {
     // flex: 1,
     // fontWeight: "bold",
-    color: Colors.facebook
+    color: Colors.ember
     // fontSize: Fonts.size.regular
   },
 
@@ -71,10 +71,10 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   iconPlus: {
-    color: Colors.facebook
+    color: Colors.ember
   },
   iconMinus: {
-    color: Colors.facebook
+    color: Colors.ember
   },
   quantity: {
     ...Fonts.style.h4,

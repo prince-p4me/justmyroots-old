@@ -3,7 +3,7 @@ import { Fonts, Metrics, Colors } from "../../Themes";
 const styles = StyleSheet.create({
   pickUpText: {
     // ...Fonts.style.h6,
-    backgroundColor: Colors.facebook,
+    backgroundColor: Colors.ember,
     // fontWeight: "bold",
     marginTop: 30
   },

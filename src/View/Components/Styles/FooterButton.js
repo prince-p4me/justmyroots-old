@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 import { Fonts, Colors } from "../../Themes";
 const styles = StyleSheet.create({
   footer: {
-    backgroundColor: Colors.facebook,
+    backgroundColor: Colors.ember,
     justifyContent: "center"
     // height: 10
   },

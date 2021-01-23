@@ -11,6 +11,8 @@ import { Platform } from "react-native";
 import React from "react";
 import { View } from "native-base";
 import HeaderIcon from "../Components/HeaderIcon";
+import ReferralIcon from "../Components/ReferralIcon";
+import OffersIcon from "../Components/OffersIcon";
 const MoreNavigator = createStackNavigator(
   {
     More: {
@@ -53,20 +55,17 @@ const MoreNavigator = createStackNavigator(
   {
     initialRouteName: "More",
     navigationOptions: ({ navigation }) => ({
-      headerTintColor: Colors.charcoal,
+      headerTintColor: Colors.ember,
       headerRight: (
         <View style={{ flexDirection: "row" }}>
-          <HeaderIcon
-            icon="search"
-            onPress={() => navigation.navigate("SearchProducts")}
-          />
-          <CartIcon navigation={navigation} />
+          <ReferralIcon/>
+          <OffersIcon/>
         </View>
       ),
       headerTitleStyle: {
         ...Platform.select({
-          ios: { fontFamily: "Arial" },
-          android: { fontFamily: "Roboto" }
+          ios: { fontFamily: "Arial",fontSize:14 },
+          android: { fontFamily: "Roboto",fontSize:14 }
         })
       }
     })

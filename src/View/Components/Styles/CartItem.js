@@ -59,10 +59,10 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   iconPlus: {
-    color: Colors.facebook
+    color: Colors.ember
   },
   iconMinus: {
-    color: Colors.facebook
+    color: Colors.ember
   },
   quantity: {
     ...Fonts.style.h4,

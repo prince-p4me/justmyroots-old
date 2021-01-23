@@ -15,78 +15,54 @@ import React from "react";
 import { View } from "native-base";
 import HeaderIcon from "../Components/HeaderIcon";
 import ProductDetail from "../Product/ProductDetail.container";
+// import SearchProducts from "../Product/SearchProducts.container";
 
 import { Platform } from "react-native";
 import ReferralIcon from "../Components/ReferralIcon";
 import OffersIcon from "../Components/OffersIcon";
 
-const HomeNavigator = createStackNavigator(
+const SearchNavigator = createStackNavigator(
   {
-    Home: {
-      screen: Home,
+    Search: {
+      screen: SearchProducts,
+      headerMode: 'none',
       navigationOptions: {
-        title: "Home"
+        title: "Search",
+        headerVisible: false,
       }
-    },
-    SubCategories: {
-      screen: ShopByOptions
-    },
-    ProductList: {
-      screen: ProductList
     },
     ProductDetail: {
       screen: ProductDetail,
       navigationOptions: {
-        title: "Product"
+        title: "Product",
       }
+      // navigationOptions: ({ navigation }) => ({
+      //   headerTintColor: Colors.ember,
+      //   headerRight: (
+      //     <View style={{ flexDirection: "row" }}>
+      //       <ReferralIcon/>
+      //       <OffersIcon/>
+      //       {/* <CartIcon navigation={navigation} /> */}
+      //     </View>
+      //   ),
+      //   headerTitleStyle: {
+      //     ...Platform.select({
+      //       ios: { fontFamily: "Arial",fontSize:14 },
+      //       android: { fontFamily: "Roboto",fontSize:14 }
+      //     })
+      //   }
+      // })
     }
-    // Cart: {
-    //   screen: Cart,
-    //   navigationOptions: {
-    //     title: "Cart",
-    //     headerRight: null
-    //   }
-    // },
-    // ShippingAddress: {
-    //   screen: Address,
-    //   navigationOptions: {
-    //     title: "Shipping Address"
-    //   }
-    // },
-    // BillingAddress: {
-    //   screen: Address,
-    //   navigationOptions: {
-    //     title: "Billing Address"
-    //   }
-    // },
-    // OrderSummary: {
-    //   screen: OrderSummary,
-    //   navigationOptions: {
-    //     title: "Order Summary"
-    //   }
-    // },
-    // PaymentMethods: {
-    //   screen: PaymentMethods,
-    //   navigationOptions: {
-    //     title: "Payment"
-    //   }
-    // },
-    // PaymentGateway: {
-    //   screen: PaymentGateway,
-    //   navigationOptions: {
-    //     title: "Pay"
-    //   }
-    // }
   },
   {
-    initialRouteName: "Home",
+    initialRouteName: "Search",
+    // headerMode: "none",
     navigationOptions: ({ navigation }) => ({
       headerTintColor: Colors.ember,
       headerRight: (
         <View style={{ flexDirection: "row" }}>
           <ReferralIcon/>
           <OffersIcon/>
-          {/* <CartIcon navigation={navigation} /> */}
         </View>
       ),
       headerTitleStyle: {
@@ -99,4 +75,4 @@ const HomeNavigator = createStackNavigator(
   }
 );
 
-export default HomeNavigator;
+export default SearchNavigator;
