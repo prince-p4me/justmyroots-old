@@ -1,5 +1,5 @@
 import React from "react";
-import { Icon, Text, Badge, View } from "native-base";
+import { Icon, Text, Image, View } from "native-base";
 import styles from "./Styles/HeaderIcon";
 import { TouchableOpacity } from "react-native";
 

@@ -16,6 +16,8 @@ import { View } from "native-base";
 import HeaderIcon from "../Components/HeaderIcon";
 
 import { Platform } from "react-native";
+import ReferralIcon from "../Components/ReferralIcon";
+import OffersIcon from "../Components/OffersIcon";
 
 const HomeNavigator = createStackNavigator(
   {
@@ -69,7 +71,6 @@ const HomeNavigator = createStackNavigator(
         title: "Payment"
       }
     },
-
     PaymentGateway: {
       screen: PaymentGateway,
       navigationOptions: {
@@ -80,20 +81,18 @@ const HomeNavigator = createStackNavigator(
   {
     initialRouteName: "Home",
     navigationOptions: ({ navigation }) => ({
-      headerTintColor: Colors.charcoal,
+      headerTintColor: Colors.ember,
       headerRight: (
         <View style={{ flexDirection: "row" }}>
-          <HeaderIcon
-            icon="search"
-            onPress={() => navigation.navigate("SearchProducts")}
-          />
-          <CartIcon navigation={navigation} />
+          <ReferralIcon/>
+          <OffersIcon/>
+          {/* <CartIcon navigation={navigation} /> */}
         </View>
       ),
       headerTitleStyle: {
         ...Platform.select({
-          ios: { fontFamily: "Arial" },
-          android: { fontFamily: "Roboto" }
+          ios: { fontFamily: "Arial",fontSize:14 },
+          android: { fontFamily: "Roboto",fontSize:14 }
         })
       }
     })
