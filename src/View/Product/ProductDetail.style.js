@@ -1,8 +1,8 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet,Dimensions } from "react-native";
 import { Fonts, Metrics, Colors } from "../Themes";
 const styles = StyleSheet.create({
   productImage: {
-    height: 300,
+    height: (Dimensions.get("window").height)/3.4,
     flex: 1
   },
   productName: {

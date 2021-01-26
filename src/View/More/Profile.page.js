@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect} from "react";
 import { Container, Content, List } from "native-base";
 import { ActivityIndicator, View } from "react-native";
 import LabelValueItem from "../Components/LabelValueItem";
@@ -6,6 +6,10 @@ import moment from "moment";
 import TextButton from "../Components/TextButton";
 
 const Profile = ({ profile, editProfile }) => {
+  // useEffect(()=>{
+  //   console.warn(JSON.stringify(profile));
+  // },[profile])
+
   return (
     <Container>
       <Content padder>

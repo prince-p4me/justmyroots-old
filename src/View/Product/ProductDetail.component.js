@@ -39,30 +39,6 @@ const ProductDetail = ({
           <Text note>{product.unit}</Text>
         </Body>
       </ListItem>
-      <ListItem>
-        <Text style={styles.productDescription} numberOfLines={10}>
-          {product.shortDescription}
-        </Text>
-      </ListItem>
-
-      {product.options && product.options.length > 0 ? (
-        <SetPreference
-          options={product.options}
-          optionClicked={optionClicked}
-        />
-      ) : null}
-      {product.color && product.color.length > 0 ? (
-        <ListItem style={styles.colorLine}>
-          <Label text={"Select Color"} />
-          <View style={styles.colorList}>
-            <ColorList
-              items={product.color}
-              colorClicked={colorClicked}
-              product={product}
-            />
-          </View>
-        </ListItem>
-      ) : null}
       <Label text={"Shops"} />
       <FlatList
         data={product.shops}
@@ -117,6 +93,31 @@ const ProductDetail = ({
           </ListItem>
         )}
       />
+      <ListItem>
+        <Text style={styles.productDescription} numberOfLines={10}>
+          {product.shortDescription}
+        </Text>
+      </ListItem>
+
+      {product.options && product.options.length > 0 ? (
+        <SetPreference
+          options={product.options}
+          optionClicked={optionClicked}
+        />
+      ) : null}
+      {product.color && product.color.length > 0 ? (
+        <ListItem style={styles.colorLine}>
+          <Label text={"Select Color"} />
+          <View style={styles.colorList}>
+            <ColorList
+              items={product.color}
+              colorClicked={colorClicked}
+              product={product}
+            />
+          </View>
+        </ListItem>
+      ) : null}
+      
     </Content>
 
     <ButtonFooter title="ADD TO CART" footerClicked={addToCart} />

@@ -1,10 +1,14 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { View } from "react-native";
 import productActions from "../../Store/Redux/product";
 import categoryActions from "../../Store/Redux/category";
 import sourcingLocationActions from "../../Store/Redux/sourcingLocation";
 import List from "../Components/List";
 import Constants from "../../Services/Constant";
+import FilterList from "../Components/FilterList";
+import ItemList from "../Components/ItemList";
+import { Container, Content } from "native-base";
 
 class ProductList extends Component {
   constructor(props) {
@@ -111,12 +115,19 @@ class ProductList extends Component {
   };
   render() {
     return (
-      <List
-        items={this.props.products}
-        filters={this.getFilters()}
-        itemClicked={this.itemClicked}
-        filterClicked={this.filterClicked}
-      />
+    //   <View>
+    //     <FilterList filters={this.getFilters} filterClicked={this.filterClicked} />
+    //   <View>
+    //     <ItemList items={this.props.products} itemClicked={this.itemClicked} />
+    //   </View>
+    // </View>
+        <List
+          items={this.props.products}
+          filters={this.getFilters()}
+          itemClicked={this.itemClicked}
+          filterClicked={this.filterClicked}
+        />
+      // </View>
     );
   }
 }

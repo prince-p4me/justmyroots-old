@@ -5,6 +5,7 @@ export function* getProfile(api, action) {
   const response = yield call(api.getProfile, action.parameters);
 
   if (response.ok) {
+    // console.log(JSON.stringify(response.data));
     yield put(ProfileActions.getProfileSuccess(response.data));
   } else {
     console.log("The error occured");
@@ -26,7 +27,7 @@ export function* editProfile(api, action) {
 
 export function* getLoyaltyPoints(api, action) {
   yield put(ProfileActions.loyaltyPointsPending());
-  const response = yield call(api.getLoyaltyPoints, action.parameters);
+  const response = yield call(api.getLoyaltyPoints, action.parameters.token);
   if (response.ok) {
     yield put(ProfileActions.loyaltyPointsSuccess(response.data));
   } else {

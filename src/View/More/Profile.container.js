@@ -6,7 +6,9 @@ import ProfilePage from "./Profile.page";
 class Profile extends Component {
   componentDidMount() {
     this.props.getProfileRequest({ token: this.props.token });
+    this.props.loyaltyPointsRequest({ token: this.props.token });
   }
+  
   editProfile = () => {
     this.props.navigation.navigate("EditProfile");
   };
