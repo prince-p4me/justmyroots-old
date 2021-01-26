@@ -1,0 +1,16 @@
+[
+  {
+    "id": "1",
+    "name": "Sweets",
+    "description": "Sweets",
+    "category_image": "http://dev.justmyroots.com/uploads/product_category/1category_image.jpg",
+    "banner": "http://dev.justmyroots.com/uploads/product_category/1banner.jpg"
+  },
+  {
+    "id": "2",
+    "name": "Beverages",
+    "description": "Tea, Coffee and juices",
+    "category_image": "http://dev.justmyroots.com/uploads/product_category/2category_image.jpg",
+    "banner": "http://dev.justmyroots.com/uploads/product_category/2banner.jpg"
+  }
+]
