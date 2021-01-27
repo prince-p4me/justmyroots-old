@@ -7,6 +7,8 @@ import shopActions from "../../Store/Redux/shop";
 import subCategoryActions from "../../Store/Redux/subCategory";
 import Constants from "../../Services/Constant";
 import List from "../Components/List";
+import { Container, Content } from "native-base";
+import CustomHeader from "../Components/CustomHeader";
 
 class ShopBy extends Component {
   constructor(props) {
@@ -15,9 +17,13 @@ class ShopBy extends Component {
   }
   parameters = { shippingLocationId: this.props.shippingLocation.id };
 
-  static navigationOptions = ({ navigation }) => ({
-    title: navigation.state.params.title
-  });
+  // static navigationOptions = ({ navigation }) => ({
+  //   title: navigation.state.params.title
+  // });
+
+  static navigationOptions = {
+    header: null
+  }
 
   getFilters = () => {
     if (this.props.navigation.state.params.type == Constants.SHOP) {
@@ -30,6 +36,7 @@ class ShopBy extends Component {
         .sort((a, b) => (a.selected ? -1 : 1));
     }
   };
+
   itemClicked = item => {
     this.props.navigation.navigate("ProductList", {
       itemId: item.id,
@@ -48,6 +55,7 @@ class ShopBy extends Component {
     }
     this.props.shopsRequest(this.parameters);
   };
+
   componentDidMount() {
     var title;
     switch (this.props.navigation.state.params.type) {
@@ -109,14 +117,22 @@ class ShopBy extends Component {
     }
     return items;
   };
+
   render() {
+    let { navigation } = this.props;
     return (
-      <List
-        items={this.getItems()}
-        filters={this.getFilters()}
-        itemClicked={this.itemClicked}
-        filterClicked={this.filterClicked}
-      />
+      <Container>
+        <CustomHeader title={navigation.state.params.title}
+          navigation={navigation} />
+        <Content>
+          <List
+            items={this.getItems()}
+            filters={this.getFilters()}
+            itemClicked={this.itemClicked}
+            filterClicked={this.filterClicked}
+          />
+        </Content>
+      </Container>
     );
   }
 }

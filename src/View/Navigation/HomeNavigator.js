@@ -36,9 +36,9 @@ const HomeNavigator = createStackNavigator(
     },
     ProductDetail: {
       screen: ProductDetail,
-      navigationOptions: {
-        title: "Product"
-      }
+      // navigationOptions: {
+      //   title: "Product"
+      // }
     }
     // Cart: {
     //   screen: Cart,
@@ -77,26 +77,25 @@ const HomeNavigator = createStackNavigator(
     //     title: "Pay"
     //   }
     // }
-  },
-  {
-    initialRouteName: "Home",
-    navigationOptions: ({ navigation }) => ({
-      headerTintColor: Colors.ember,
-      headerRight: (
-        <View style={{ flexDirection: "row" }}>
-          <ReferralIcon/>
-          <OffersIcon/>
-          {/* <CartIcon navigation={navigation} /> */}
-        </View>
-      ),
-      headerTitleStyle: {
-        ...Platform.select({
-          ios: { fontFamily: "Arial",fontSize:14 },
-          android: { fontFamily: "Roboto",fontSize:14 }
-        })
-      }
-    })
   }
+  // {
+  //   initialRouteName: "Home",
+  //   navigationOptions: ({ navigation }) => ({
+  //     headerTintColor: Colors.ember,
+  //     headerRight: (
+  //       <View style={{ flexDirection: "row" }}>
+  //         <ReferralIcon/>
+  //         <OffersIcon/>
+  //       </View>
+  //     ),
+  //     headerTitleStyle: {
+  //       ...Platform.select({
+  //         ios: { fontFamily: "Arial",fontSize:14 },
+  //         android: { fontFamily: "Roboto",fontSize:14 }
+  //       })
+  //     }
+  //   })
+  // }
 );
 
 export default HomeNavigator;
