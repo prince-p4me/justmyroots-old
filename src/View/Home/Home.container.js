@@ -77,6 +77,7 @@ class Home extends Component {
   render() {
     return (
       <HomePage
+        navigation={this.props.navigation}
         location={this.props.shippingLocation}
         categories={this.props.categories}
         banners={this.props.banners}

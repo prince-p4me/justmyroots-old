@@ -12,7 +12,7 @@ const RadioList = ({ items, itemClicked }) => {
           <ListItem>
             <Body>
               <Text>{item.name}</Text>
-              <Text note>{item.price ? "Rs. " + item.price : null}</Text>
+              {item.price && <Text note>{item.price ? "Rs. " + item.price : null}</Text>}
             </Body>
             <Right>
               <Radio selected={item.selected} />
