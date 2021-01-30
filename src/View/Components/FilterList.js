@@ -1,5 +1,5 @@
 import React from "react";
-import {Image,View} from "react-native";
+import { Image, View, StyleSheet } from "react-native";
 import { FlatList } from "react-native";
 import FilterItem from "./FilterItem";
 import filterIcon from "../../View/Assets/filter.png";
@@ -11,11 +11,9 @@ const componentName = ({ filters, filterClicked }) => {
     <FlatList
       data={filters}
       horizontal={true}
-      ListHeaderComponent={(<View style={{padding:11,
-      borderRadius:15,borderColor: colors.lightCharcoal,
-      borderWidth: 1,marginLeft:10,marginTop:5,
-      borderRadius: 25}}>
-        <Image source={filterIcon} style={{width:16,height:16,resizeMode:"contain",tintColor:colors.ember}}></Image>
+      contentContainerStyle={{ height: filters ? 47 : 0, marginBottom: 7 }}
+      ListHeaderComponent={(filters && <View style={styles.filerIcon}>
+        <Image source={filterIcon} style={{ width: 16, height: 16, resizeMode: "contain", tintColor: colors.ember }}></Image>
       </View>)}
       keyExtractor={item => item.id}
       renderItem={({ item }) => (
@@ -26,3 +24,12 @@ const componentName = ({ filters, filterClicked }) => {
 };
 
 export default componentName;
+
+const styles = StyleSheet.create({
+  filerIcon: {
+    padding: 11,
+    borderRadius: 15, borderColor: colors.lightCharcoal,
+    borderWidth: 1, marginLeft: 10, marginTop: 5,
+    borderRadius: 25,
+  }
+})

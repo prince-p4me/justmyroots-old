@@ -24,9 +24,9 @@ const HomeNavigator = createStackNavigator(
   {
     Home: {
       screen: Home,
-      navigationOptions: {
-        title: "Home"
-      }
+      // navigationOptions: {
+      //   title: "Home"
+      // }
     },
     SubCategories: {
       screen: ShopByOptions

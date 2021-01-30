@@ -38,6 +38,7 @@ class Home extends Component {
   }
 
   bannerClicked = item => {
+    console.log(JSON.stringify(item))
     switch (item.link_type) {
       case "P":
         this.props.navigation.navigate("ProductDetail", {
@@ -78,12 +79,9 @@ class Home extends Component {
     return (
       <HomePage
         navigation={this.props.navigation}
-        location={this.props.shippingLocation}
-        categories={this.props.categories}
         banners={this.props.banners}
         bannerClicked={this.bannerClicked}
-        navigation={this.props.navigation}
-        locationClicked={this.locationClicked}
+      // locationClicked={this.locationClicked}
       />
     );
   }

@@ -124,14 +124,14 @@ class ShopBy extends Component {
       <Container>
         <CustomHeader title={navigation.state.params.title}
           navigation={navigation} />
-        <Content>
-          <List
-            items={this.getItems()}
-            filters={this.getFilters()}
-            itemClicked={this.itemClicked}
-            filterClicked={this.filterClicked}
-          />
-        </Content>
+        {/* <Content> */}
+        <List
+          items={this.getItems()}
+          filters={this.getFilters()}
+          itemClicked={this.itemClicked}
+          filterClicked={this.filterClicked}
+        />
+        {/* </Content> */}
       </Container>
     );
   }

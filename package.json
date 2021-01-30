@@ -15,6 +15,7 @@
     "react": "16.6.0-alpha.8af6728",
     "react-devtools": "^4.10.1",
     "react-native": "0.57.4",
+    "react-native-flatlist-slider": "^1.0.5",
     "react-native-modal-datetime-picker": "^6.0.0",
     "react-native-step-indicator": "0.0.9",
     "react-native-webview": "^2.14.3",
