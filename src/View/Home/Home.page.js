@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Content, Icon, Title, View } from "native-base";
-import { Dimensions, FlatList, Image, TouchableOpacity, StyleSheet } from "react-native";
+import { Dimensions, FlatList, ScrollView, Image, TouchableOpacity, StyleSheet } from "react-native";
 import DeliveryLocation from "../Components/DeliveryLocation";
 import BannerList from "../Components/BannerList";
 import HeaderWithTitle from "../Components/HeaderWithTitle";
@@ -16,69 +16,71 @@ const Home = ({ banners, bannerClicked, navigation, options, optionClicked, cate
     <Container>
       <CustomHeader title="Home" root={true} navigation={navigation} />
       <Content>
-        {/* <DeliveryLocation
+        <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+          {/* <DeliveryLocation
           location={location}
           locationClicked={locationClicked}
         /> */}
-        {/* <Slideshow dataSource={banners}
+          {/* <Slideshow dataSource={banners}
           onPositionChanged={position => bannerClicked(banners[position])} /> */}
-        {/* <BannerList items={banners} bannerClicked={bannerClicked} /> */}
-        <FlatListSlider data={banners}
-          height={height / 3.3}
-          timer={3000}
-          onPress={index => {
-            console.log(JSON.stringify(index));
-            bannerClicked(banners[index]);
-          }}
-          contentContainerStyle={{ paddingHorizontal: 2 }}
-          indicatorContainerStyle={{ position: 'absolute', bottom: 10 }}
-          indicatorActiveColor={colors.ember}
-          indicatorInActiveColor={'#ffffff'}
-          indicatorActiveWidth={30}
-          animation
-        />
-        <FlatList data={options}
-          horizontal={true}
-          contentContainerStyle={{
-            height: 150,
-            padding: 7,
-          }}
+          {/* <BannerList items={banners} bannerClicked={bannerClicked} /> */}
+          <FlatListSlider data={banners}
+            height={height / 3.3}
+            timer={3000}
+            onPress={index => {
+              console.log(JSON.stringify(index));
+              bannerClicked(banners[index]);
+            }}
+            contentContainerStyle={{ paddingHorizontal: 2 }}
+            indicatorContainerStyle={{ position: 'absolute', bottom: 10 }}
+            indicatorActiveColor={colors.ember}
+            indicatorInActiveColor={'#ffffff'}
+            indicatorActiveWidth={30}
+            animation
+          />
+          <FlatList data={options}
+            horizontal={true}
+            contentContainerStyle={{
+              height: 150,
+              padding: 7,
+            }}
 
-          keyExtractor={(item, index) => index.toString()}
-          renderItem={({ item, index }) => {
-            return (
-              < TouchableOpacity activeOpacity={.7} style={styles.optionBtn}
-                onPress={() => optionClicked(item)}>
-                <Image source={{ uri: item.url }} style={{ flex: 1, resizeMode: "cover" }}></Image>
-                <View style={styles.explore}>
-                  <Title style={{ color: "white", fontSize: 14 }}>Explore Now</Title>
-                  <Icon type="FontAwesome" style={{
-                    color: "white"
-                  }} name="angle-double-right" />
-                </View>
-              </TouchableOpacity>
-            )
-          }}
-        ></FlatList>
-        <FlatList data={categories}
-          horizontal={true}
-          contentContainerStyle={{
-            height: 120, padding: 7,
-            paddingTop: 0
-          }}
+            keyExtractor={(item, index) => index.toString()}
+            renderItem={({ item, index }) => {
+              return (
+                < TouchableOpacity activeOpacity={.7} style={styles.optionBtn}
+                  onPress={() => optionClicked(item)}>
+                  <Image source={{ uri: item.url }} style={{ flex: 1, resizeMode: "cover" }}></Image>
+                  <View style={styles.explore}>
+                    <Title style={{ color: "white", fontSize: 14 }}>Explore Now</Title>
+                    <Icon type="FontAwesome" style={{
+                      color: "white"
+                    }} name="angle-double-right" />
+                  </View>
+                </TouchableOpacity>
+              )
+            }}
+          ></FlatList>
+          <FlatList data={categories}
+            horizontal={true}
+            contentContainerStyle={{
+              height: 120, padding: 7,
+              paddingTop: 0
+            }}
 
-          keyExtractor={(item, index) => index.toString()}
-          renderItem={({ item, index }) => {
-            return (
-              < TouchableOpacity activeOpacity={.7} style={[styles.optionBtn, {
-                width: (width - 56) / 4,
-              }]}
-                onPress={() => categoryClicked(item)}>
-                <Image source={{ uri: item.url }} style={{ flex: 1, resizeMode: "cover" }}></Image>
-              </TouchableOpacity>
-            )
-          }}
-        ></FlatList>
+            keyExtractor={(item, index) => index.toString()}
+            renderItem={({ item, index }) => {
+              return (
+                < TouchableOpacity activeOpacity={.7} style={[styles.optionBtn, {
+                  width: (width - 56) / 4,
+                }]}
+                  onPress={() => categoryClicked(item)}>
+                  <Image source={{ uri: item.url }} style={{ flex: 1, resizeMode: "cover" }}></Image>
+                </TouchableOpacity>
+              )
+            }}
+          ></FlatList>
+        </ScrollView>
       </Content>
     </Container >
   );
