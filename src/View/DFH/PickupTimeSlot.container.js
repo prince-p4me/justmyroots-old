@@ -4,6 +4,10 @@ import actions from "../../Store/Redux/dfh";
 import SelectElement from "../Components/SelectElement";
 
 class PickupTimeSlot extends Component {
+  // static navigationOptions = {
+  //   header: null
+  // }
+
   componentDidMount() {
     let parameters = {
       fromLocationId: this.props.pickupLocation.id,

@@ -6,6 +6,9 @@ import actions from "../../Store/Redux/dfh";
 import Constant from "../../Services/Constant";
 
 class DfhPreference extends Component {
+  static navigationOptions = {
+    header: null
+  }
   componentDidMount() {
     this.props.dfhDeliveryCentresRequest(this.props.deliveryLocation.id);
     this.props.dfhPickupCentresRequest(this.props.pickupLocation.id);
@@ -98,6 +101,7 @@ class DfhPreference extends Component {
   render() {
     return (
       <DfhPreferencePage
+        navigation={this.props.navigation}
         changeDeliveryDate={this.changeDeliveryDate}
         changeDeliveryTimeSlot={this.changeDeliveryTimeSlot}
         changePickupDate={this.changePickupDate}

@@ -12,6 +12,7 @@ import {
 import StepsIndicator from "./StepsIndicator.component";
 import Switch from "../Components/Switch";
 import styles from "./Styles/DfhItems.style";
+import CustomHeader from "../Components/CustomHeader";
 
 const DfhPreference = ({
   delivery,
@@ -26,9 +27,11 @@ const DfhPreference = ({
   dfhDeliveryCentres,
   dfhPickupCentres,
   selectPickupDfhCentre,
-  goToNext
+  goToNext, navigation
 }) => (
   <Container>
+    <CustomHeader navigation={navigation} title="Preferences" />
+
     <Content padder>
       <StepsIndicator currentPosition={3} />
       <ListItem itemHeader first>
@@ -52,12 +55,12 @@ const DfhPreference = ({
           <Text note>Select</Text>
         </Right>
       </ListItem>
-      <Switch
+      {/* <Switch
         title={"Do you need Home Delivery?"}
         note={"Charged Extra"}
         value={delivery.needed}
         onValueChange={changeHomeDeliveryStatus}
-      />
+      /> */}
       {!delivery.needed ? (
         dfhDeliveryCentres.length > 0 ? (
           <ListItem onPress={selectDeliveryDfhCentre}>
@@ -70,13 +73,13 @@ const DfhPreference = ({
             </Right>
           </ListItem>
         ) : (
-          <ListItem>
-            <Body>
-              <Text>There are no DFH Centres in your city</Text>
-              <Text note>Please choose Home Delivery</Text>
-            </Body>
-          </ListItem>
-        )
+            <ListItem>
+              <Body>
+                <Text>There are no DFH Centres in your city</Text>
+                <Text note>Please choose Home Delivery</Text>
+              </Body>
+            </ListItem>
+          )
       ) : null}
       <ListItem itemHeader first>
         <Text>PICKUP SERVICE</Text>
@@ -99,12 +102,12 @@ const DfhPreference = ({
           <Text note>Select</Text>
         </Right>
       </ListItem>
-      <Switch
+      {/* <Switch
         title={"Do you need Home Pickup?"}
         note={"Charged Extra"}
         value={pickUp.needed}
         onValueChange={changeHomePickupStatus}
-      />
+      /> */}
       {!pickUp.needed ? (
         dfhPickupCentres.length > 0 ? (
           <ListItem onPress={selectPickupDfhCentre}>
@@ -117,13 +120,13 @@ const DfhPreference = ({
             </Right>
           </ListItem>
         ) : (
-          <ListItem>
-            <Body>
-              <Text>There are no DFH Centres at your location</Text>
-              <Text note>Please choose Home Pickup</Text>
-            </Body>
-          </ListItem>
-        )
+            <ListItem>
+              <Body>
+                <Text>There are no DFH Centres at your location</Text>
+                <Text note>Please choose Home Pickup</Text>
+              </Body>
+            </ListItem>
+          )
       ) : null}
       <Button block style={styles.nextButton} onPress={goToNext}>
         <Text>NEXT</Text>

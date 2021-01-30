@@ -3,15 +3,17 @@ import { Container, Text, Content, Right, ListItem, Body } from "native-base";
 import DfhToAddress from "../Components/DfhToAddress";
 
 import StepsIndicator from "./StepsIndicator.component";
+import CustomHeader from "../Components/CustomHeader";
 const Dfh = ({
   goToNext,
   currentPosition,
   chooseLocation,
   location,
   fetching
-}) => {
+  , navigation }) => {
   return (
     <Container>
+      <CustomHeader navigation={navigation} title="To Address" />
       <Content padder>
         <StepsIndicator currentPosition={currentPosition} />
         <ListItem onPress={chooseLocation}>

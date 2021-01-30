@@ -5,6 +5,10 @@ import DfhToPage from "./DfhTo.page";
 import { Toast } from "native-base";
 
 class DfhTo extends Component {
+  static navigationOptions = {
+    header: null
+  }
+
   componentDidMount() {
     this.props.dfhReset();
   }
@@ -58,6 +62,7 @@ class DfhTo extends Component {
   render() {
     return (
       <DfhToPage
+        navigation={this.props.navigation}
         goToNext={this.goToNext}
         chooseLocation={this.chooseLocation}
         location={this.props.location.name}

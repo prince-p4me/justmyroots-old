@@ -13,9 +13,11 @@ import StepsIndicator from "./StepsIndicator.component";
 import styles from "./Styles/DfhItems.style";
 import { FlatList } from "react-native";
 import { Colors } from "../Themes";
+import CustomHeader from "../Components/CustomHeader";
 
-const DfhItems = ({ items, addItem, goToNext, removeItem }) => (
+const DfhItems = ({ navigation, items, addItem, goToNext, removeItem }) => (
   <Container>
+    <CustomHeader navigation={navigation} title="Items" />
     <Content padder>
       <StepsIndicator currentPosition={2} />
       <Button block style={styles.nextButton} onPress={addItem}>

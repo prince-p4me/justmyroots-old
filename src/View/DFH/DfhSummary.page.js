@@ -14,6 +14,7 @@ import StepsIndicator from "./StepsIndicator.component";
 import DfhAddressCard from "../Components/DfhAddressCard";
 import DfhOrderBlock from "../Components/DfhOrderBlock";
 import styles from "./Styles/DfhSummary.style";
+import CustomHeader from "../Components/CustomHeader";
 
 const Items = ({ items }) => (
   <View>
@@ -40,8 +41,10 @@ const Items = ({ items }) => (
   </View>
 );
 
-const DfhSummary = ({ dfh, deliveryLocation, pickupLocation, goToNext }) => (
+const DfhSummary = ({ dfh, navigation, deliveryLocation, pickupLocation, goToNext }) => (
   <Container>
+    <CustomHeader navigation={navigation} title="Summary" />
+
     <Content padder>
       <StepsIndicator currentPosition={4} />
       <Items items={dfh.items} />
@@ -54,14 +57,14 @@ const DfhSummary = ({ dfh, deliveryLocation, pickupLocation, goToNext }) => (
           </Text>
         </Body>
       </ListItem>
-      <ListItem>
+      {/* <ListItem>
         <Body>
           <Text>Home Pickup Needed?</Text>
         </Body>
         <Right>
           <Text note>{dfh.pickUp.needed ? "Yes" : "No"}</Text>
         </Right>
-      </ListItem>
+      </ListItem> */}
       {dfh.pickUp.needed ? null : (
         <ListItem>
           <Body>
@@ -80,14 +83,14 @@ const DfhSummary = ({ dfh, deliveryLocation, pickupLocation, goToNext }) => (
           </Text>
         </Body>
       </ListItem>
-      <ListItem>
+      {/* <ListItem>
         <Body>
           <Text>Home Delivery Needed?</Text>
         </Body>
         <Right>
           <Text note>{dfh.delivery.needed ? "Yes" : "No"}</Text>
         </Right>
-      </ListItem>
+      </ListItem> */}
       {dfh.delivery.needed ? null : (
         <ListItem>
           <Body>

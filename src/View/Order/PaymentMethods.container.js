@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+// import { Clipboard } from "react-native";
 import actions from "../../Store/Redux/order";
 import PaymentMethodsPage from "./PaymentMethods.page";
 import { Toast } from "native-base";
@@ -123,6 +124,7 @@ class PaymentMethods extends Component {
   render() {
     return (
       <PaymentMethodsPage
+        navigation={this.props.navigation}
         amount={this.getAmount()}
         paymentMethods={this.props.paymentMethods}
         selectPaymentMethod={this.selectPaymentMethod}

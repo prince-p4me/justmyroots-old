@@ -6,9 +6,9 @@ const DfhFromNavigator = createStackNavigator(
   {
     DfhFrom: {
       screen: DfhFrom,
-      navigationOptions: {
-        title: "From Address"
-      }
+      // navigationOptions: {
+      //   title: "From Address"
+      // }
     },
     PickupLocation: {
       screen: PickupLocation,

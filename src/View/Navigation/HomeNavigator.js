@@ -28,14 +28,24 @@ import DfhItemNavigator from "./DfhItemNavigator";
 import DfhSummary from "../DFH/DfhSummary.container";
 // import PaymentGateway from "../Order/PaymentGateway";
 // import PaymentMethods from "../Order/PaymentMethods.container";
+import PickupLocation from "../DFH/PickupLocation.container";
+import DfhFrom from "../DFH/DfhFrom.container";
+import DeliveryLocation from "../DFH/DeliveryLocation.container";
+import DfhTo from "../DFH/DfhTo.container";
+import DfhAddItem from "../DFH/AddItem.container";
+import DfhItems from "../DFH/DfhItems.container";
+
+import DfhPreference from "../DFH/DfhPreference.container";
+import DeliveryDate from "../DFH/DeliveryDate.container";
+import PickupDate from "../DFH/PickupDate.container";
+import PickupTimeSlot from "../DFH/PickupTimeSlot.container";
+import DeliveryTimeSlot from "../DFH/DeliveryTimeSlot.container";
+import DfhCentres from "../DFH/DfhCentres.container";
 
 const HomeNavigator = createStackNavigator(
   {
     Home: {
       screen: Home,
-      // navigationOptions: {
-      //   title: "Home"
-      // }
     },
     SubCategories: {
       screen: ShopByOptions
@@ -45,9 +55,6 @@ const HomeNavigator = createStackNavigator(
     },
     ProductDetail: {
       screen: ProductDetail,
-      // navigationOptions: {
-      //   title: "Product"
-      // }
     },
     ShopBy: {
       screen: ShopByOptions
@@ -58,30 +65,90 @@ const HomeNavigator = createStackNavigator(
         title: "DFH"
       }
     },
-    DfhFromNavigator: {
-      screen: DfhFromNavigator,
+    DfhFrom: {
+      screen: DfhFrom,
       navigationOptions: {
         title: "From Address"
       }
     },
-    DfhToNavigator: {
-      screen: DfhToNavigator,
+    PickupLocation: {
+      screen: PickupLocation,
+      navigationOptions: {
+        title: "Pick Up Location"
+      }
+    },
+    DfhTo: {
+      screen: DfhTo,
       navigationOptions: {
         title: "To Address"
       }
     },
-    DfhItemNavigator: {
-      screen: DfhItemNavigator,
+    DeliveryLocation: {
+      screen: DeliveryLocation,
+      navigationOptions: {
+        title: "Delivery Location"
+      }
+    },
+    // DfhToNavigator: {
+    //   screen: DfhToNavigator,
+    //   navigationOptions: {
+    //     title: "To Address"
+    //   }
+    // },
+    DfhItems: {
+      screen: DfhItems,
       navigationOptions: {
         title: "Items"
       }
     },
-    DfhPreferenceNavigator: {
-      screen: DfhPreferenceNavigator,
+    DfhAddItem: {
+      screen: DfhAddItem,
+      navigationOptions: {
+        title: "Items"
+      }
+    },
+    DfhPreference: {
+      screen: DfhPreference,
       navigationOptions: {
         title: "Preferences"
       }
     },
+    DfhDeliveryDate: {
+      screen: DeliveryDate,
+      navigationOptions: {
+        title: "Select Delivery Date"
+      }
+    },
+    DfhDeliveryTimeSlot: {
+      screen: DeliveryTimeSlot,
+      navigationOptions: {
+        title: "Select Time Slot"
+      }
+    },
+    DfhPickupDate: {
+      screen: PickupDate,
+      navigationOptions: {
+        title: "Select Pickup Date"
+      }
+    },
+    DfhPickupTimeSlot: {
+      screen: PickupTimeSlot,
+      navigationOptions: {
+        title: "Select Time Slot"
+      }
+    },
+    DfhCentres: {
+      screen: DfhCentres,
+      navigationOptions: {
+        title: "Select Dfh Centres"
+      }
+    },
+    // DfhPreferenceNavigator: {
+    //   screen: DfhPreferenceNavigator,
+    //   navigationOptions: {
+    //     title: "Preferences"
+    //   }
+    // },
     DfhSummary: {
       screen: DfhSummary,
       navigationOptions: {
@@ -138,7 +205,10 @@ const HomeNavigator = createStackNavigator(
     //     title: "Pay"
     //   }
     // }
-  }
+  }, {
+  initialRouteName: "Dfh",
+  // initialRouteName: "DfhSummary",
+}
   // {
   //   initialRouteName: "Home",
   //   navigationOptions: ({ navigation }) => ({

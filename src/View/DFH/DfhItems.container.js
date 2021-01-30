@@ -5,6 +5,10 @@ import DfhItemsPage from "./DfhItems.page";
 import { Toast } from "native-base";
 
 class DfhItems extends Component {
+  static navigationOptions = {
+    header: null
+  }
+
   componentDidUpdate(prevProps, prevState) {
     let { weightCheck } = this.props.dfh;
     if (weightCheck.success && weightCheck.success == 1) {
@@ -49,6 +53,7 @@ class DfhItems extends Component {
   render() {
     return (
       <DfhItemsPage
+        navigation={this.props.navigation}
         goToNext={this.goToNext}
         addItem={this.addItem}
         items={this.props.dfh.items}

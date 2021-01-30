@@ -4,6 +4,10 @@ import pickupLocationActions from "../../Store/Redux/pickupLocation";
 import SelectElement from "../Components/SelectElement";
 
 class SelectPickupLocation extends Component {
+  // static navigationOptions = {
+  //   header: null
+  // }
+
   componentDidMount() {
     this.props.pickupLocationsRequest();
   }
@@ -14,6 +18,7 @@ class SelectPickupLocation extends Component {
   render() {
     return (
       <SelectElement
+        navigation={this.props.navigation}
         items={this.props.pickupLocations}
         itemClicked={this.pickupLocationSelected}
         isItemString={false}

@@ -6,6 +6,10 @@ import DfhFromPage from "./DfhFrom.page";
 import { Toast } from "native-base";
 
 class DfhFrom extends Component {
+  static navigationOptions = {
+    header: null
+  }
+
   componentDidUpdate(prevProps, prevState) {
     let message = null;
     let { processed, error } = this.props;
@@ -61,6 +65,7 @@ class DfhFrom extends Component {
         location={this.props.location.name}
         fetching={this.props.fetching}
         currentPosition={0}
+        navigation={this.props.navigation}
       />
     );
   }

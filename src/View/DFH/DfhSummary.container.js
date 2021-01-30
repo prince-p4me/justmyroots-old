@@ -6,6 +6,10 @@ import actions from "../../Store/Redux/dfh";
 import Constant from "../../Services/Constant";
 
 class DfhSummary extends Component {
+  static navigationOptions = {
+    header: null
+  }
+
   componentDidMount() {
     let { dfh, token } = this.props;
     let { from, to, items, pickUp, delivery } = dfh;
@@ -19,14 +23,17 @@ class DfhSummary extends Component {
     };
     this.props.dfhSummaryRequest(parameters);
   }
+
   goToNext = () => {
     this.props.navigation.navigate("PaymentMethods", {
       flow: Constant.DFH_FLOW
     });
   };
+
   render() {
     return this.props.dfh.orderSummary ? (
       <DfhSummaryPage
+        navigation={this.props.navigation}
         dfh={this.props.dfh}
         deliveryLocation={this.props.deliveryLocation}
         pickupLocation={this.props.pickupLocation}
