@@ -4,11 +4,29 @@ import categoryActions from "../../Store/Redux/category";
 import bannerActions from "../../Store/Redux/banner";
 import HomePage from "./Home.page";
 import Constants from "../../Services/Constant";
+import categories from '../../Fixtures/category.json';
 
 class Home extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      shopbyOptions: [
+        {
+          link_type: "cities",
+          url: "https://rukminim1.flixcart.com/image/352/352/art-craft-kit/9/6/3/imagimake-mapology-states-of-india-original-imae6jcynzfd65ev.jpeg?q=70"
+        }, {
+          link_type: "brands",
+          url: "https://s3.us-east-2.amazonaws.com/images.berkotfoods.com/Hexagons_Grocery/Berkots_Hexagon1_NameBrands.jpg"
+        }, {
+          link_type: "cities",
+          url: "https://rukminim1.flixcart.com/image/352/352/art-craft-kit/9/6/3/imagimake-mapology-states-of-india-original-imae6jcynzfd65ev.jpeg?q=70"
+        }, {
+          link_type: "brands",
+          url: "https://s3.us-east-2.amazonaws.com/images.berkotfoods.com/Hexagons_Grocery/Berkots_Hexagon1_NameBrands.jpg"
+        }
+      ],
+      categories: categories
+    };
   }
 
   static navigationOptions = {
@@ -75,12 +93,52 @@ class Home extends Component {
     // });
   };
 
+  optionClicked = item => {
+    console.log(JSON.stringify(item))
+    switch (item.link_type.toLowerCase()) {
+      case "cities":
+        this.props.navigation.navigate("ShopBy", {
+          type: Constants.SOURCING_LOCATION
+        });
+        break;
+      case "brands":
+        this.props.navigation.navigate("ShopBy", {
+          type: Constants.SHOP
+        });
+        break;
+      default:
+        break;
+    }
+  }
+
+  categoryClicked = item => {
+    console.log(JSON.stringify(item))
+    switch (item.link_type.toLowerCase()) {
+      case "dfh":
+        this.props.navigation.navigate("Dfh");
+        break;
+      case "category":
+        this.props.navigation.navigate("SubCategories", {
+          type: Constants.SUB_CATEGORY,
+          categoryId: item.id,
+          name: item.name
+        });
+        break;
+      default:
+        break;
+    }
+  }
+
   render() {
     return (
       <HomePage
         navigation={this.props.navigation}
         banners={this.props.banners}
         bannerClicked={this.bannerClicked}
+        options={this.state.shopbyOptions}
+        optionClicked={this.optionClicked}
+        categories={this.state.categories}
+        categoryClicked={this.categoryClicked}
       // locationClicked={this.locationClicked}
       />
     );

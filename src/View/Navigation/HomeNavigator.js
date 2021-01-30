@@ -19,6 +19,15 @@ import ProductDetail from "../Product/ProductDetail.container";
 import { Platform } from "react-native";
 import ReferralIcon from "../Components/ReferralIcon";
 import OffersIcon from "../Components/OffersIcon";
+import DfhNavigator from "./DfhNavigator";
+import DfhScreen from "../DFH/Dfh.component";
+import DfhFromNavigator from "./DfhFromNavigator";
+import DfhToNavigator from "./DfhToNavigator";
+import DfhPreferenceNavigator from "./DfhPreferenceNavigator";
+import DfhItemNavigator from "./DfhItemNavigator";
+import DfhSummary from "../DFH/DfhSummary.container";
+// import PaymentGateway from "../Order/PaymentGateway";
+// import PaymentMethods from "../Order/PaymentMethods.container";
 
 const HomeNavigator = createStackNavigator(
   {
@@ -39,7 +48,59 @@ const HomeNavigator = createStackNavigator(
       // navigationOptions: {
       //   title: "Product"
       // }
+    },
+    ShopBy: {
+      screen: ShopByOptions
+    },
+    Dfh: {
+      screen: DfhScreen,
+      navigationOptions: {
+        title: "DFH"
+      }
+    },
+    DfhFromNavigator: {
+      screen: DfhFromNavigator,
+      navigationOptions: {
+        title: "From Address"
+      }
+    },
+    DfhToNavigator: {
+      screen: DfhToNavigator,
+      navigationOptions: {
+        title: "To Address"
+      }
+    },
+    DfhItemNavigator: {
+      screen: DfhItemNavigator,
+      navigationOptions: {
+        title: "Items"
+      }
+    },
+    DfhPreferenceNavigator: {
+      screen: DfhPreferenceNavigator,
+      navigationOptions: {
+        title: "Preferences"
+      }
+    },
+    DfhSummary: {
+      screen: DfhSummary,
+      navigationOptions: {
+        title: "Summary"
+      }
+    },
+    PaymentMethods: {
+      screen: PaymentMethods,
+      navigationOptions: {
+        title: "Payment"
+      }
+    },
+    PaymentGateway: {
+      screen: PaymentGateway,
+      navigationOptions: {
+        title: "Pay"
+      }
     }
+
     // Cart: {
     //   screen: Cart,
     //   navigationOptions: {
