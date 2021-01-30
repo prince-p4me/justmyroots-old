@@ -206,7 +206,7 @@ const HomeNavigator = createStackNavigator(
     //   }
     // }
   }, {
-  initialRouteName: "Dfh",
+  // initialRouteName: "Dfh",
   // initialRouteName: "DfhSummary",
 }
   // {
