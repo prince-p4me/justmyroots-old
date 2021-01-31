@@ -7,9 +7,11 @@ const ReferralIcon = ({ navigation, token }) => {
   return (
     <TouchableOpacity onPress={() => {
       if (token) {
-        alert("navigating to referr")
+        // alert("navigating to offers")
+        navigation.navigate("Refferal");
       } else {
-        alert("navigating to login")
+        // alert("navigating to login")
+        navigation.navigate("Login");
       }
     }} style={{ flexDirection: "row", paddingHorizontal: 3, alignItems: "center" }}>
       <Image source={referral} style={{

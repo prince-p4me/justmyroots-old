@@ -8,10 +8,10 @@ const OffersIcon = ({ navigation, token }) => {
     <TouchableOpacity onPress={() => {
       if (token) {
         // alert("navigating to offers")
-        navigation.navigate("Offers")
+        navigation.navigate("Offers");
       } else {
         // alert("navigating to login")
-        navigation.navigate("Login")
+        navigation.navigate("Login");
       }
     }} style={{ flexDirection: "row", paddingHorizontal: 3, alignItems: "center" }}>
       <Image source={discount} style={{
