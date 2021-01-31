@@ -24,7 +24,7 @@ export default createBottomTabNavigator(
     Account: MoreNavigator
   },
   {
-    initialRouteName: "Account",
+    // initialRouteName: "Account",
     navigationOptions: ({ navigation }) => ({
       tabBarIcon: ({ focused, horizontal, tintColor }) => {
         const { routeName } = navigation.state;
