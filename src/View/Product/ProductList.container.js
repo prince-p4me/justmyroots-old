@@ -9,17 +9,23 @@ import Constants from "../../Services/Constant";
 import FilterList from "../Components/FilterList";
 import ItemList from "../Components/ItemList";
 import { Container, Content } from "native-base";
+import CustomHeader from "../Components/CustomHeader";
 
 class ProductList extends Component {
   constructor(props) {
     super(props);
     this.state = { selectedFilterId: null };
   }
+
+  static navigationOptions = {
+    header: null
+  }
+
   parameters = { shippingLocationId: this.props.shippingLocation.id };
 
-  static navigationOptions = ({ navigation }) => ({
-    title: navigation.state.params.name
-  });
+  // static navigationOptions = ({ navigation }) => ({
+  //   title: navigation.state.params.name
+  // });
 
   componentDidMount() {
     const itemId = this.props.navigation.state.params.itemId;
@@ -115,19 +121,16 @@ class ProductList extends Component {
   };
   render() {
     return (
-    //   <View>
-    //     <FilterList filters={this.getFilters} filterClicked={this.filterClicked} />
-    //   <View>
-    //     <ItemList items={this.props.products} itemClicked={this.itemClicked} />
-    //   </View>
-    // </View>
+      <Container>
+        <CustomHeader title={this.props.navigation.state.params.name}
+          navigation={this.props.navigation} />
         <List
           items={this.props.products}
           filters={this.getFilters()}
           itemClicked={this.itemClicked}
           filterClicked={this.filterClicked}
         />
-      // </View>
+      </Container>
     );
   }
 }

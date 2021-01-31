@@ -1,4 +1,4 @@
-import { NavigationActions,createBottomTabNavigator } from "react-navigation";
+import { NavigationActions, createBottomTabNavigator } from "react-navigation";
 import CategoriesNavigator from "./CategoriesNavigator";
 import ShopByNavigator from "./ShopByNavigator";
 import DfhModalNavigator from "./DfhModalNavigator";
@@ -19,12 +19,12 @@ export default createBottomTabNavigator(
     // Categories: CategoriesNavigator,
     // ShopBy: ShopByNavigator,
     // DFH: DfhModalNavigator,
-    Search:SearchNavigator,
-    Cart:CartModalNavigator,
+    Search: SearchNavigator,
+    Cart: CartModalNavigator,
     Account: MoreNavigator
   },
   {
-    // initialRouteName: "Search",
+    initialRouteName: "Account",
     navigationOptions: ({ navigation }) => ({
       tabBarIcon: ({ focused, horizontal, tintColor }) => {
         const { routeName } = navigation.state;
@@ -47,17 +47,6 @@ export default createBottomTabNavigator(
           <Icon name={iconName} size={horizontal ? 20 : 25} color={tintColor} />
         );
       },
-      // tabBarOnPress: () => {
-      //   const { routeName } = navigation.state;
-        // if (routeName=="Search") {
-        //   console.warn("navigating to top");
-        //   navigation.popToTop(); 
-        //   navigation.navigate(navigation.state.routeName);
-        // } else {
-        //   navigation.navigate(routeName);
-        //   console.warn("navigating to "+routeName);
-        // }
-      // },
     }),
     tabBarOptions: {
       activeTintColor: Colors.ember,

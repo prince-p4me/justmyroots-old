@@ -1,17 +1,21 @@
-import React,{useEffect} from "react";
+import React, { useEffect } from "react";
 import { Container, Content, List } from "native-base";
 import { ActivityIndicator, View } from "react-native";
 import LabelValueItem from "../Components/LabelValueItem";
 import moment from "moment";
 import TextButton from "../Components/TextButton";
+import CustomHeader from "../Components/CustomHeader";
 
-const Profile = ({ profile, editProfile }) => {
+const Profile = ({ profile, editProfile, navigation }) => {
   // useEffect(()=>{
   //   console.warn(JSON.stringify(profile));
   // },[profile])
 
   return (
     <Container>
+      {/* <CustomHeader */}
+      <CustomHeader title="More " navigation={navigation} />
+
       <Content padder>
         {profile ? (
           <View>
@@ -33,8 +37,8 @@ const Profile = ({ profile, editProfile }) => {
             <TextButton title="Edit Profile" onPress={editProfile} />
           </View>
         ) : (
-          <ActivityIndicator />
-        )}
+            <ActivityIndicator />
+          )}
       </Content>
     </Container>
   );

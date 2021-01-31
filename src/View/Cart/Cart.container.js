@@ -88,8 +88,9 @@ class Cart extends Component {
     if (this.props.sections.length > 0) {
       this.props.token
         ? this.props.navigation.navigate("ShippingAddress", {
-            type: Constants.SHIPPING_ADDRESS
-          })
+          type: Constants.SHIPPING_ADDRESS,
+          name: "Shipping Address"
+        })
         : this.props.navigation.navigate("Login");
     } else {
       Toast.show({

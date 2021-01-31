@@ -108,6 +108,7 @@ class OrderSummary extends Component {
   render() {
     return this.props.order ? (
       <OrderSummaryPage
+        navigation={this.props.navigation}
         order={this.props.order}
         shippingLocation={this.props.shippingLocation.name}
         fetching={this.props.fetching}
@@ -118,8 +119,8 @@ class OrderSummary extends Component {
         useLoyaltyPoints={this.props.useLoyaltyPoints}
       />
     ) : (
-      <LoadingIndicator />
-    );
+        <LoadingIndicator />
+      );
   }
 }
 

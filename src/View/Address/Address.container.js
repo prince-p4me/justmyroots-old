@@ -38,7 +38,8 @@ class Address extends Component {
     if (this.props.navigation.state.params.type == Constants.SHIPPING_ADDRESS) {
       if (this.props.shippingAddresses.length > 0) {
         this.props.navigation.navigate("BillingAddress", {
-          type: Constants.BILLING_ADDRESS
+          type: Constants.BILLING_ADDRESS,
+          name: "Billing Address"
         });
       } else {
         Toast.show({
@@ -65,9 +66,16 @@ class Address extends Component {
       ? this.props.selectShippingAddress(address.address_id)
       : this.props.selectBillingAddress(address.address_id);
   };
+
+  static navigationOptions = {
+    headerRight: null
+  };
+
   render() {
     return (
       <AddressPage
+        navigation={this.props.navigation}
+        title={this.props.navigation.state.params.name}
         addresses={
           this.props.navigation.state.params.type == Constants.SHIPPING_ADDRESS
             ? this.props.shippingAddresses

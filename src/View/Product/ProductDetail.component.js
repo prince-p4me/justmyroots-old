@@ -17,6 +17,7 @@ import ButtonFooter from "../Components/ButtonFooter";
 import SetPreference from "../Components/SetPreference";
 import ColorList from "../Components/ColorList";
 import Label from "../Components/Label";
+import CustomHeader from "../Components/CustomHeader";
 
 const ProductDetail = ({
   product,
@@ -24,9 +25,12 @@ const ProductDetail = ({
   decQty,
   addToCart,
   optionClicked,
-  colorClicked
+  colorClicked, navigation
 }) => (
   <Container>
+    <CustomHeader title={"Product"}
+      navigation={navigation} />
+    {/* <CustomHeader */}
     <Content>
       <Image
         source={{ uri: product.images[0].image }}
@@ -117,7 +121,7 @@ const ProductDetail = ({
           </View>
         </ListItem>
       ) : null}
-      
+
     </Content>
 
     <ButtonFooter title="ADD TO CART" footerClicked={addToCart} />

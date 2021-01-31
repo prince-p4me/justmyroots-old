@@ -7,6 +7,9 @@ import { Toast } from "native-base";
 import moment from "moment";
 
 class EditProfile extends Component {
+  static navigationOptions = {
+    header: null
+  }
   save = form => {
     if (form.dob) {
       form.dob = moment(form.dob).format("DD/MM/YYYY");
@@ -36,6 +39,7 @@ class EditProfile extends Component {
   render() {
     return (
       <EditProfileForm
+        navigation={this.props.navigation}
         onSubmit={this.save}
         mobile={this.props.mobile}
         fetching={this.props.fetching}

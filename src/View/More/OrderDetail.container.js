@@ -5,12 +5,16 @@ import OrderDetailPage from "./OrderDetail.page";
 import LoadingIndicator from "../Components/LoadingIndicator";
 
 class OrderDetail extends Component {
+  static navigationOptions = {
+    header: null
+  }
   render() {
     return this.props.order ? (
-      <OrderDetailPage order={this.props.order} />
+      <OrderDetailPage order={this.props.order}
+        navigation={this.props.navigation} />
     ) : (
-      <LoadingIndicator />
-    );
+        <LoadingIndicator />
+      );
   }
 }
 

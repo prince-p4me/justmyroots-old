@@ -11,6 +11,9 @@ class ProductDetail extends Component {
     super(props);
     this.state = { selections: [] };
   }
+  static navigationOptions = {
+    header: null
+  }
 
   // static navigationOptions = {
   //   headerRight: (
@@ -48,17 +51,17 @@ class ProductDetail extends Component {
     let selections = this.state.selections;
     selections.find(selection => selection.productId === shop.productId)
       ? this.setState({
-          ...this.state,
-          selections: selections.map(selection =>
-            selection.productId == shop.productId
-              ? { ...selection, quantity: selection.quantity + 1 }
-              : selection
-          )
-        })
+        ...this.state,
+        selections: selections.map(selection =>
+          selection.productId == shop.productId
+            ? { ...selection, quantity: selection.quantity + 1 }
+            : selection
+        )
+      })
       : this.setState({
-          ...this.state,
-          selections: [...selections, { ...shop, quantity: 1 }]
-        });
+        ...this.state,
+        selections: [...selections, { ...shop, quantity: 1 }]
+      });
   };
 
   decQty = shop => {
@@ -112,7 +115,7 @@ class ProductDetail extends Component {
   colorClicked = color => {
     this.props.setProductColor(color);
   };
-  
+
   optionClicked = option => {
     switch (option.type) {
       case "text":
@@ -144,6 +147,7 @@ class ProductDetail extends Component {
   render() {
     return this.props.product ? (
       <ProductDetailComponent
+        navigation={this.props.navigation}
         product={this.getProduct()}
         navigation={this.props.navigation}
         incQty={this.incQty}
@@ -153,8 +157,8 @@ class ProductDetail extends Component {
         colorClicked={this.colorClicked}
       />
     ) : (
-      <ActivityIndicator />
-    );
+        <ActivityIndicator />
+      );
   }
 }
 

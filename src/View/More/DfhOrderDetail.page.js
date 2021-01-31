@@ -15,6 +15,7 @@ import Label from "../Components/Label";
 import styles from "../Components/Styles/OrderDetailFooter";
 import styles1 from "./Styles/DfhSummary.style";
 import { FlatList } from "react-native";
+import CustomHeader from "../Components/CustomHeader";
 
 const Items = ({ items }) => (
   <View>
@@ -139,9 +140,11 @@ const Delivery = ({ order }) => (
   </View>
 );
 
-const OrderDetail = ({ order }) => {
+const OrderDetail = ({ order, navigation }) => {
   return (
     <Container>
+      <CustomHeader navigation={navigation} title="Order Detail"></CustomHeader>
+
       <Content padder>
         <Label text={"Order: " + order.saleCode} large />
         <ListItem style={styles.listItem}>

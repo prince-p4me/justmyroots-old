@@ -4,16 +4,19 @@ import { reduxForm } from "redux-form";
 import Label from "../Components/Label";
 import ProfileForm from "../Components/ProfileForm";
 import { connect } from "react-redux";
+import CustomHeader from "../Components/CustomHeader";
 
 let EditProfileForm = ({
   handleSubmit,
   pristine,
   reset,
   submitting,
-  mobile,
+  mobile, navigation,
   fetching
 }) => (
   <Container>
+    <CustomHeader navigation={navigation} title="Edit Profile"></CustomHeader>
+
     <Content padder>
       <Label text={mobile} />
       <ProfileForm handleSubmit={handleSubmit} fetching={fetching} />

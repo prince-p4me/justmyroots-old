@@ -3,16 +3,18 @@ import { Container, Content } from "native-base";
 import HeaderWithTitle from "../Components/HeaderWithTitle";
 
 import AddAddressForm from "../Components/AddAddressForm";
+import CustomHeader from "../Components/CustomHeader";
 const AddAddress = ({
   closeModal,
   addAddress,
   countries,
   states,
   cities,
-  getCities
+  getCities, navigation
 }) => {
   return (
     <Container>
+      <CustomHeader title="Add New Address" navigation={navigation} />
       <HeaderWithTitle title="Add New Address" />
       <Content padder>
         <AddAddressForm

@@ -29,6 +29,7 @@ class AddAddress extends Component {
   render() {
     return (
       <AddAddressPage
+        navigation={this.props.navigation}
         closeModal={this.closeModal}
         addAddress={this.addAddress}
         countries={this.props.countries}

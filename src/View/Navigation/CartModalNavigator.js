@@ -24,7 +24,8 @@ const CartModalNavigator = createStackNavigator(
     Cart: {
       screen: Cart,
       navigationOptions: {
-        title: "Cart"
+        title: "Cart",
+        header: null
       }
     },
     SelectDeliveryDate: {
@@ -72,25 +73,29 @@ const CartModalNavigator = createStackNavigator(
     ShippingAddress: {
       screen: Address,
       navigationOptions: {
-        title: "Shipping Address"
+        title: "Shipping Address",
+        header: null
       }
     },
     AddAddress: {
       screen: AddAddressForm,
       navigationOptions: {
-        title: "Add Address"
+        title: "Add Address",
+        header: null
       }
     },
     BillingAddress: {
       screen: Address,
       navigationOptions: {
-        title: "Billing Address"
+        title: "Billing Address",
+        header: null
       }
     },
     OrderSummary: {
       screen: OrderSummary,
       navigationOptions: {
-        title: "Order Summary"
+        title: "Order Summary",
+        header: null
       }
     },
     PaymentMethods: {
@@ -107,17 +112,17 @@ const CartModalNavigator = createStackNavigator(
     }
   },
   {
-    initialRouteName: "Cart",
-    mode: "modal",
-    navigationOptions: ({ navigation }) => ({
-      headerTintColor: Colors.ember,
-      headerTitleStyle: {
-        ...Platform.select({
-          ios: { fontFamily: "Arial",fontSize:14 },
-          android: { fontFamily: "Roboto",fontSize:14 }
-        })
-      }
-    })
+    //   initialRouteName: "Cart",
+    //   mode: "modal",
+    //   navigationOptions: ({ navigation }) => ({
+    //     headerTintColor: Colors.ember,
+    //     headerTitleStyle: {
+    //       ...Platform.select({
+    //         ios: { fontFamily: "Arial",fontSize:14 },
+    //         android: { fontFamily: "Roboto",fontSize:14 }
+    //       })
+    //     }
+    //   })
     // headerMode: "none"
   }
 );

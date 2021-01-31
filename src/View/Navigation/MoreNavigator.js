@@ -58,14 +58,14 @@ const MoreNavigator = createStackNavigator(
       headerTintColor: Colors.ember,
       headerRight: (
         <View style={{ flexDirection: "row" }}>
-          <ReferralIcon/>
-          <OffersIcon/>
+          <ReferralIcon />
+          <OffersIcon />
         </View>
       ),
       headerTitleStyle: {
         ...Platform.select({
-          ios: { fontFamily: "Arial",fontSize:14 },
-          android: { fontFamily: "Roboto",fontSize:14 }
+          ios: { fontFamily: "Arial", fontSize: 14 },
+          android: { fontFamily: "Roboto", fontSize: 14 }
         })
       }
     })

@@ -4,6 +4,9 @@ import actions from "../../Store/Redux/myOrder";
 import MyOrdersPage from "./MyOrders.page";
 
 class MyOrders extends Component {
+  static navigationOptions = {
+    header: null
+  }
   componentDidMount() {
     this.props.myOrdersRequest({ token: this.props.token });
   }
@@ -29,6 +32,7 @@ class MyOrders extends Component {
   render() {
     return (
       <MyOrdersPage
+        navigation={this.props.navigation}
         orders={this.props.orders}
         orderClicked={this.orderClicked}
       />

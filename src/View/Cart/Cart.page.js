@@ -4,6 +4,7 @@ import { FlatList } from "react-native";
 import CartSection from "../Components/CartSection";
 import ButtonFooter from "../Components/ButtonFooter";
 import Label from "../Components/Label";
+import CustomHeader from "../Components/CustomHeader";
 const Cart = ({
   sections,
   incQty,
@@ -15,10 +16,11 @@ const Cart = ({
   bagTypeOptions,
   giftingTypeOptions,
   setPreference,
-  colorClicked
+  colorClicked, navigation
 }) => {
   return (
     <Container>
+      <CustomHeader title="Cart" navigation={navigation} root={true}></CustomHeader>
       <Content>
         <FlatList
           data={sections}

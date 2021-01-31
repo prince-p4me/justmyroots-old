@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import actions from "../../Store/Redux/authentication";
 import MorePage from "./More.page";
 import { Toast } from "native-base";
+import CustomHeader from "../Components/CustomHeader";
 
 class More extends Component {
   logout = () => {
@@ -13,6 +14,10 @@ class More extends Component {
       duration: 3000
     });
   };
+
+  static navigationOptions = {
+    header: null
+  }
 
   menu = {
     profile: {
@@ -30,6 +35,12 @@ class More extends Component {
       title: "My Orders",
       menuClicked: () => this.props.navigation.navigate("MyOrders")
     },
+    myRefferrals: {
+      icon: "users",
+      title: "My Refferrals",
+      // subtitle: "JMR#11",
+      menuClicked: () => this.props.navigation.navigate("RefferalMore")
+    },
     logout: {
       icon: "power-off",
       title: "Logout",
@@ -39,6 +50,7 @@ class More extends Component {
   render() {
     return (
       <MorePage
+        // navigation={this.props.navigation}
         menu={this.menu}
         navigation={this.props.navigation}
         token={this.props.token}

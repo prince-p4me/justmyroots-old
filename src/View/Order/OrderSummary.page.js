@@ -6,12 +6,13 @@ import OrderSectionList from "../Components/OrderSectionList";
 import CouponForm from "../Components/CouponForm";
 import Label from "../Components/Label";
 import { Fonts, Metrics, Colors } from "../Themes";
+import CustomHeader from "../Components/CustomHeader";
 
 const Order = ({
   order,
   shippingLocation,
   fetching,
-  applyCoupon,
+  applyCoupon, navigation,
   next,
   loyaltyPoints,
   changeLoyaltyStatus,
@@ -19,6 +20,7 @@ const Order = ({
 }) => {
   return (
     <Container>
+      <CustomHeader title="Order SUmmary" navigation={navigation} />
       <Content padder>
         <OrderSectionList
           items={order.sections}
