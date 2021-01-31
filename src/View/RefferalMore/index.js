@@ -4,7 +4,7 @@ import actions from "../../Store/Redux/order";
 import { connect } from "react-redux";
 import LoadingIndicator from "../Components/LoadingIndicator";
 import { Toast, Icon, Title } from "native-base";
-import { StyleSheet, Text, View, Image, SafeAreaView, TouchableOpacity, ScrollView, Dimensions, ImageBackground } from "react-native";
+import { StyleSheet, Text, View, Share, SafeAreaView, TouchableOpacity, ScrollView, Dimensions, ImageBackground } from "react-native";
 // import Clipboard from '@react-native-community/clipboard';
 import colors from "../Themes/Colors";
 import NormalHeader from "../Components/NormalHeader";
@@ -26,6 +26,26 @@ class RefferalMore extends Component {
         // let response = await axios.get('xyz')
     }
 
+    onShare = async msg => {
+        let message = msg ? msg : "React native is good framework";
+        try {
+            const result = await Share.share({ message });
+            if (result.action === Share.sharedAction) {
+                console.log("shared");
+                if (result.activityType) {
+                    console.log("shared with activity type:-" + result.activityType);
+                } else {
+                    console.log("shared");
+                }
+            } else if (result.action == Share.dismissedAction) {
+                console.log("shared dismissed");
+            }
+        } catch (error) {
+            console.log(error.message);
+            alert(error.message);
+        }
+    }
+
     render() {
         return (
             <View style={{ height: '100%', width: "100%", backgroundColor: "white" }}>
@@ -36,8 +56,8 @@ class RefferalMore extends Component {
                         style={{ height: Dimensions.get("window").height / 3.3, width: "100%" }} />
                     <View style={{ paddingTop: 20, paddingHorizontal: 12 }}>
                         <Title style={{ fontSize: 24, color: colors.ember }}>Your Referral Code</Title>
-                        <TouchableOpacity activeOpacity={.7}
-                            style={styles.shareBtn}>
+                        <TouchableOpacity activeOpacity={.7} style={styles.shareBtn}
+                            onPress={() => this.onShare()}>
                             <Title style={{ fontSize: 34, color: "white" }}>
                                 JMR#01</Title>
                             <Icon style={{ color: "white" }}
