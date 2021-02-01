@@ -12,6 +12,7 @@ const height = Dimensions.get("window").height;
 const width = Dimensions.get("window").width;
 
 const Home = ({ banners, bannerClicked, navigation, options, optionClicked, categories, categoryClicked }) => {
+  console.log("banners ", banners);
   return (
     <Container>
       <CustomHeader title="Home" root={true} navigation={navigation} />
@@ -24,7 +25,7 @@ const Home = ({ banners, bannerClicked, navigation, options, optionClicked, cate
           {/* <Slideshow dataSource={banners}
           onPositionChanged={position => bannerClicked(banners[position])} /> */}
           {/* <BannerList items={banners} bannerClicked={bannerClicked} /> */}
-          <FlatListSlider data={banners}
+          {(banners && banners.length) ? <FlatListSlider data={banners ? banners : []}
             height={height / 3.3}
             timer={3000}
             onPress={index => {
@@ -37,7 +38,7 @@ const Home = ({ banners, bannerClicked, navigation, options, optionClicked, cate
             indicatorInActiveColor={'#ffffff'}
             indicatorActiveWidth={30}
             animation
-          />
+          /> : null}
           <FlatList data={options}
             horizontal={true}
             contentContainerStyle={{

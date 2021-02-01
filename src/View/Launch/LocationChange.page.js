@@ -10,7 +10,7 @@ const LocationChange = ({
   disabled
 }) => (
   <Container>
-    <HeaderWithTitle title="Select Delivery Location sjfgkjsfhgkjsdhfjk" />
+    <HeaderWithTitle title="Select Delivery Location" />
     <Content>
       <RadioList
         items={shippingLocations}
