@@ -127,7 +127,7 @@ class Home extends Component {
 
   categoryClicked = item => {
     console.log(JSON.stringify(item))
-    switch (item.link_type.toLowerCase()) {
+    switch (item.link_type) {
       case "D":
         this.props.navigation.navigate("Dfh");
         break;
@@ -135,7 +135,7 @@ class Home extends Component {
         this.props.navigation.navigate("SubCategories", {
           type: Constants.SUB_CATEGORY,
           categoryId: item.id,
-          name: item.name
+          name: item.heading
         });
         break;
       default:

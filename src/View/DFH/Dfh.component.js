@@ -15,7 +15,7 @@ class DFh extends React.Component {
     const { navigation } = this.props;
     return (
       <Container>
-        <CustomHeader title="Ghar ka Khana" root={true} navigation={navigation} />
+        <CustomHeader title="Ghar ka Khana" navigation={navigation} />
 
         <View style={styles.mainContainer}>
           <View style={styles.container}>

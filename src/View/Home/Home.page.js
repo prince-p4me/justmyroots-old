@@ -42,8 +42,9 @@ const Home = ({ banners, bannerClicked, navigation, options, optionClicked, cate
           <FlatList data={options}
             horizontal={true}
             contentContainerStyle={{
-              height: 150,
-              padding: 7,
+              height: 160,
+              paddingHorizontal: 7,
+              paddingVertical: 14
             }}
 
             keyExtractor={(item, index) => index.toString()}
@@ -51,7 +52,7 @@ const Home = ({ banners, bannerClicked, navigation, options, optionClicked, cate
               return (
                 < TouchableOpacity activeOpacity={.7} style={styles.optionBtn}
                   onPress={() => optionClicked(item)}>
-                  <Image source={{ uri: item.url }} style={{ flex: 1, resizeMode: "cover" }}></Image>
+                  <Image source={{ uri: item.url }} style={{ flex: 1, resizeMode: "stretch" }}></Image>
                   {/* <View style={styles.explore}>
                     <Title style={{ color: "white", fontSize: 14 }}>Explore Now</Title>
                     <Icon type="FontAwesome" style={{
@@ -93,7 +94,7 @@ const styles = StyleSheet.create({
   optionBtn: {
     width: (width - 42) / 2.3,
     height: "100%",
-    margin: 7,
+    marginHorizontal: 7,
     // backgroundColor: "red",
     borderRadius: 10,
     overflow: "hidden"
