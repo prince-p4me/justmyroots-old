@@ -8,6 +8,8 @@ import { CategoryTypes } from "../Redux/category";
 import { SubCategoryTypes } from "../Redux/subCategory";
 import { ProductTypes } from "../Redux/product";
 import { BannerTypes } from "../Redux/banner";
+import { Banner1Types } from "../Redux/banner1";
+import { Banner2Types } from "../Redux/banner2";
 import { CuisineTypes } from "../Redux/cuisine";
 import { CommunityTypes } from "../Redux/community";
 import { ShopTypes } from "../Redux/shop";
@@ -76,6 +78,8 @@ export default function* root() {
       api
     ),
     takeLatest(BannerTypes.BANNERS_REQUEST, bannerSagas.getBanners, api),
+    takeLatest(Banner1Types.BANNERS1_REQUEST, bannerSagas.getBanners1, api),
+    takeLatest(Banner2Types.BANNERS2_REQUEST, bannerSagas.getBanners2, api),
     takeLatest(CuisineTypes.CUISINES_REQUEST, cuisineSagas.getCuisines, api),
     takeLatest(
       CommunityTypes.COMMUNITIES_REQUEST,

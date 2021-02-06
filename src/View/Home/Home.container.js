@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import categoryActions from "../../Store/Redux/category";
 import bannerActions from "../../Store/Redux/banner";
+import banner1Actions from "../../Store/Redux/banner1";
+import banner2Actions from "../../Store/Redux/banner2";
 import HomePage from "./Home.page";
 import Constants from "../../Services/Constant";
 import categories from '../../Fixtures/category.json';
@@ -10,7 +12,7 @@ class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      shopbyOptions: [
+      options: [
         {
           link_type: "cities",
           url: "https://rukminim1.flixcart.com/image/352/352/art-craft-kit/9/6/3/imagimake-mapology-states-of-india-original-imae6jcynzfd65ev.jpeg?q=70"
@@ -39,20 +41,32 @@ class Home extends Component {
 
   shouldComponentUpdate(nextProps, nextState, nextContext) {
     const { shippingLocation } = nextProps;
+    // const { bannersRequest, banners1Request, banners2Request } = this.props;
     if (shippingLocation.id != this.props.shippingLocation.id) {
       this.props.bannersRequest(shippingLocation.id);
+      this.props.banners1Request(shippingLocation.id);
+      this.props.banners2Request(shippingLocation.id);
     }
     return true;
   }
 
   componentDidMount() {
-    if (!this.props.shippingLocation.id) {
-      this.props.navigation.navigate("LaunchNavigator");
+    let { navigation,
+      shippingLocation,
+      bannersRequest,
+      banners1Request,
+      banners2Request
+    } = this.props;
+    if (!shippingLocation.id) {
+      navigation.navigate("LaunchNavigator");
     }
-    let parameters = {
-      shippingLocationId: this.props.shippingLocation.id
-    };
-    this.props.bannersRequest(this.props.shippingLocation.id);
+    console.log("home page")
+    // let parameters = {
+    //   shippingLocationId: shippingLocation.id
+    // };
+    bannersRequest(shippingLocation.id);
+    banners1Request(shippingLocation.id);
+    banners2Request(shippingLocation.id);
   }
 
   bannerClicked = item => {
@@ -95,13 +109,13 @@ class Home extends Component {
 
   optionClicked = item => {
     console.log(JSON.stringify(item))
-    switch (item.link_type.toLowerCase()) {
-      case "cities":
+    switch (item.link_type) {
+      case "CI":
         this.props.navigation.navigate("ShopBy", {
           type: Constants.SOURCING_LOCATION
         });
         break;
-      case "brands":
+      case "BR":
         this.props.navigation.navigate("ShopBy", {
           type: Constants.SHOP
         });
@@ -114,10 +128,10 @@ class Home extends Component {
   categoryClicked = item => {
     console.log(JSON.stringify(item))
     switch (item.link_type.toLowerCase()) {
-      case "dfh":
+      case "D":
         this.props.navigation.navigate("Dfh");
         break;
-      case "category":
+      case "C":
         this.props.navigation.navigate("SubCategories", {
           type: Constants.SUB_CATEGORY,
           categoryId: item.id,
@@ -135,9 +149,9 @@ class Home extends Component {
         navigation={this.props.navigation}
         banners={this.props.banners}
         bannerClicked={this.bannerClicked}
-        options={this.state.shopbyOptions}
+        options={this.props.options}
         optionClicked={this.optionClicked}
-        categories={this.state.categories}
+        categories={this.props.categories}
         categoryClicked={this.categoryClicked}
       // locationClicked={this.locationClicked}
       />
@@ -145,13 +159,20 @@ class Home extends Component {
   }
 }
 
-const mapStateToProps = ({ category, banner, shippingLocation }) => ({
-  categories: category.categories,
+const mapStateToProps = ({ banner, banner1, banner2, shippingLocation }) => ({
+  // categories: category.categories,
   banners: banner.banners,
+  options: banner1.banners,
+  categories: banner2.banners,
   shippingLocation: shippingLocation.selectedShippingLocation
 });
 
-const mapDispatchToProps = { ...categoryActions, ...bannerActions };
+const mapDispatchToProps = {
+  ...categoryActions,
+  ...bannerActions,
+  ...banner1Actions,
+  ...banner2Actions
+};
 
 export default connect(
   mapStateToProps,

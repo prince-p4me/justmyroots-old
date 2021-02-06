@@ -12,7 +12,7 @@ const height = Dimensions.get("window").height;
 const width = Dimensions.get("window").width;
 
 const Home = ({ banners, bannerClicked, navigation, options, optionClicked, categories, categoryClicked }) => {
-  console.log("banners ", banners);
+  console.log("categories ", categories);
   return (
     <Container>
       <CustomHeader title="Home" root={true} navigation={navigation} />
@@ -52,12 +52,12 @@ const Home = ({ banners, bannerClicked, navigation, options, optionClicked, cate
                 < TouchableOpacity activeOpacity={.7} style={styles.optionBtn}
                   onPress={() => optionClicked(item)}>
                   <Image source={{ uri: item.url }} style={{ flex: 1, resizeMode: "cover" }}></Image>
-                  <View style={styles.explore}>
+                  {/* <View style={styles.explore}>
                     <Title style={{ color: "white", fontSize: 14 }}>Explore Now</Title>
                     <Icon type="FontAwesome" style={{
                       color: "white"
                     }} name="angle-double-right" />
-                  </View>
+                  </View> */}
                 </TouchableOpacity>
               )
             }}

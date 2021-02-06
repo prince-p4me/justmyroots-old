@@ -39,14 +39,12 @@ const create = (baseURL = Constant.API_URL) => {
     api.post("getSubCategories", parameters);
   const getProductDetail = parameters =>
     api.get(
-      `getProductDetail/${parameters.shippingLocationId}/${
-        parameters.productId
+      `getProductDetail/${parameters.shippingLocationId}/${parameters.productId
       }`
     );
   const checkZipCode = parameters =>
     api.get(
-      `checkZipCode?location_id=${parameters.locationId}&zip=${
-        parameters.zipCode
+      `checkZipCode?location_id=${parameters.locationId}&zip=${parameters.zipCode
       }`
     );
 
@@ -55,6 +53,10 @@ const create = (baseURL = Constant.API_URL) => {
 
   const getBanners = shippingLocationId =>
     api.get(`getBanners/${shippingLocationId}`);
+  const getBanners1 = shippingLocationId =>
+    api.get(`getBanners1/${shippingLocationId}`);
+  const getBanners2 = shippingLocationId =>
+    api.get(`getBanners2/${shippingLocationId}`);
   const getDfhCentres = locationId => api.get(`getDfhCentres/${locationId}`);
   const getShippingLocations = () => api.get("getShippingLocations");
   const getPickupLocations = () => api.get("getPickupLocations");
@@ -129,6 +131,8 @@ const create = (baseURL = Constant.API_URL) => {
     getProducts,
     getProductDetail,
     getBanners,
+    getBanners1,
+    getBanners2,
     getShippingLocations,
     getPickupLocations,
     getCommunities,

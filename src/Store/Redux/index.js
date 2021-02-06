@@ -6,6 +6,8 @@ export default (reducers = combineReducers({
   subCategory: require("./subCategory").reducer,
   product: require("./product").reducer,
   banner: require("./banner").reducer,
+  banner1: require("./banner1").reducer,
+  banner2: require("./banner2").reducer,
   shippingLocation: require("./shippingLocation").reducer,
   pickupLocation: require("./pickupLocation").reducer,
   dfh: require("./dfh").reducer,
