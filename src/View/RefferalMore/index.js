@@ -47,46 +47,45 @@ class RefferalMore extends Component {
     }
 
     render() {
+        const { data } = this.props;
+
         return (
             <View style={{ height: '100%', width: "100%", backgroundColor: "white" }}>
                 <SafeAreaView />
                 <NormalHeader title="REFFERRAL" navigation={this.props.navigation} />
                 <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
-                    <ImageBackground source={refferalImg} resizeMode="cover"
+                    <ImageBackground source={{ uri: data.referralBannerImage }} resizeMode="cover"
                         style={{ height: Dimensions.get("window").height / 3.3, width: "100%" }} />
                     <View style={{ paddingTop: 20, paddingHorizontal: 12 }}>
-                        <Title style={{ fontSize: 24, color: colors.ember }}>Your Referral Code</Title>
+                        <Title style={{ fontSize: 24, color: colors.ember }}>{data.referralTitle}</Title>
                         <TouchableOpacity activeOpacity={.7} style={styles.shareBtn}
                             onPress={() => this.onShare()}>
                             <Title style={{ fontSize: 34, color: "white" }}>
-                                JMR#01</Title>
+                                {data.userReferral.referralCode ? data.userReferral.referralCode : "JMR#01"}</Title>
                             <Icon style={{ color: "white" }}
                                 type="MaterialIcons" name="content-copy" />
                         </TouchableOpacity>
                         <Text style={styles.text}>
-                            JMR REFFERRAL  Program is a unique Refferal Program, that  gives
-                            you a opportunity to earn every time your Refferral Orders from JustMyRoots.
-                        </Text>
+                            {data.referral_first_para}</Text>
+
                     </View>
-                    <ImageBackground source={bridgeImg} resizeMode="contain"
+                    <ImageBackground source={{ uri: data.referralFirstImage }} resizeMode="contain"
                         style={{ height: 170, width: "100%", marginVertical: 15 }} />
-                    <Text style={styles.heading}>How does JMR REFFERRAL works?</Text>
-                    <ImageBackground source={refferalImg2} resizeMode="contain"
+                    <Text style={styles.heading}>{data.referralHowWorkHeading}</Text>
+                    <ImageBackground source={{ uri: data.referralHowWorkImage }} resizeMode="contain"
                         style={{ height: 170, width: "100%", marginVertical: 15 }} />
                     <Text style={[styles.text, { marginBottom: 20 }]}>
-                        Invite people to download the app with your unique refferral code.
-                        While they get 100 JMR Points upon signing up, you also get
-                        100 JMR Points when they order their first meal
-                        </Text>
+                        {data.referralHowWorkPara}
+                    </Text>
                 </ScrollView>
             </View>
         );
     }
 }
 
-const mapStateToProps = ({ order }) => ({
-    orderId: order.orderId,
-    paymentStatus: order.paymentStatus
+const mapStateToProps = ({ refferral, authentication }) => ({
+    data: refferral.refferral,
+    token: authentication.token
 });
 
 const mapDispatchToProps = actions;

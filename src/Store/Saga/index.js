@@ -10,6 +10,7 @@ import { ProductTypes } from "../Redux/product";
 import { BannerTypes } from "../Redux/banner";
 import { Banner1Types } from "../Redux/banner1";
 import { Banner2Types } from "../Redux/banner2";
+import { RefferralTypes } from "../Redux/refferral";
 import { CuisineTypes } from "../Redux/cuisine";
 import { CommunityTypes } from "../Redux/community";
 import { ShopTypes } from "../Redux/shop";
@@ -47,6 +48,7 @@ import * as myOrderSagas from "./myOrder";
 import * as geoSagas from "./geo";
 import * as packingSagas from "./packing";
 import * as dfhSagas from "./dfh";
+import * as refferralSagas from "./refferral";
 
 /* ------------- API ------------- */
 
@@ -77,6 +79,7 @@ export default function* root() {
       productSagas.getProductDetail,
       api
     ),
+    takeLatest(RefferralTypes.REFFERRAL_REQUEST, refferralSagas.getRefferralData, api),
     takeLatest(BannerTypes.BANNERS_REQUEST, bannerSagas.getBanners, api),
     takeLatest(Banner1Types.BANNERS1_REQUEST, bannerSagas.getBanners1, api),
     takeLatest(Banner2Types.BANNERS2_REQUEST, bannerSagas.getBanners2, api),

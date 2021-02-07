@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 // import { WebView } from "react-native-webview";
-import actions from "../../Store/Redux/order";
+import actions from "../../Store/Redux/refferral";
 import { connect } from "react-redux";
 import LoadingIndicator from "../Components/LoadingIndicator";
 import { Toast, Icon, Title } from "native-base";
@@ -20,8 +20,8 @@ class Refferal extends Component {
         };
     }
 
-    componentDidMount = async () => {
-        // let response = await axios.get('xyz')
+    componentDidMount() {
+        this.props.refferralRequest({ token: this.props.token });
     }
 
     onShare = async msg => {
@@ -45,26 +45,26 @@ class Refferal extends Component {
     }
 
     render() {
+        const { data } = this.props;
+        console.log("refferral", data);
         return (
             <View style={{ height: '100%', width: "100%", backgroundColor: "white" }}>
                 <SafeAreaView />
                 <NormalHeader title="REFFERRAL" navigation={this.props.navigation} />
                 <View style={{ flex: 1 }}>
-                    <ImageBackground source={refferalImg} resizeMode="cover"
+                    <ImageBackground source={{ uri: data.referralBannerImage }} resizeMode="cover"
                         style={{ height: Dimensions.get("window").height / 3.3, width: "100%" }} />
                     <View style={{ flex: 1, paddingVertical: 20, paddingHorizontal: 12 }}>
-                        <Title style={{ fontSize: 24, color: colors.ember }}>Your Referral Code</Title>
+                        <Title style={{ fontSize: 24, color: colors.ember }}>{data.referralTitle}</Title>
                         <TouchableOpacity activeOpacity={.7} style={styles.shareBtn}
                             onPress={() => this.onShare()}>
                             <Title style={{ fontSize: 34, color: "white" }}>
-                                JMR#01</Title>
+                                {data.userReferral.referralCode ? data.userReferral.referralCode : "JMR#01"}</Title>
                             <Icon style={{ color: "white" }}
                                 type="MaterialIcons" name="content-copy" />
                         </TouchableOpacity>
                         <Text style={styles.text}>
-                            Your unique refferral Code, refer a friend and earn JMR Points
-                            every time they order from JustMyRoots and every time they refer further.
-                        </Text>
+                            {data.referral_first_para}</Text>
                         <TouchableOpacity activeOpacity={.7}
                             style={styles.next} onPress={() => this.props.navigation.navigate("RefferalMore")}>
                             <Text style={{ fontSize: 14, color: "white", fontWeight: "600" }}>
@@ -77,9 +77,9 @@ class Refferal extends Component {
     }
 }
 
-const mapStateToProps = ({ order }) => ({
-    orderId: order.orderId,
-    paymentStatus: order.paymentStatus
+const mapStateToProps = ({ refferral, authentication }) => ({
+    data: refferral.refferral,
+    token: authentication.token
 });
 
 const mapDispatchToProps = actions;

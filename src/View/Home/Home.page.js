@@ -12,7 +12,7 @@ const height = Dimensions.get("window").height;
 const width = Dimensions.get("window").width;
 
 const Home = ({ banners, bannerClicked, navigation, options, optionClicked, categories, categoryClicked }) => {
-  console.log("categories ", categories);
+  // console.log("categories ", categories);
   return (
     <Container>
       <CustomHeader title="Home" root={true} navigation={navigation} />

@@ -67,6 +67,7 @@ const create = (baseURL = Constant.API_URL) => {
   const getCuisines = parameters => api.post("getCuisines", parameters);
   const getShops = parameters => api.post("getShops", parameters);
   const sendOtp = parameters => api.post("sendOTP", parameters);
+  const getRefferralData = parameters => api.post("getReferralPage", parameters);
   const verifyMobile = parameters => api.post("verifyMobile", parameters);
   const registerProfile = parameters => api.post("registerProfile", parameters);
   const editProfile = parameters => api.post("editProfile", parameters);
@@ -126,6 +127,7 @@ const create = (baseURL = Constant.API_URL) => {
   //
   return {
     // a list of the API functions from step 2
+    getRefferralData,
     getCategories,
     getSubCategories,
     getProducts,
