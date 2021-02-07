@@ -98,6 +98,43 @@ class Home extends Component {
           name: item.heading
         });
         break;
+      case "D":
+        this.props.navigation.navigate("Dfh");
+        break;
+      case "CIS":
+        this.props.navigation.navigate("ProductList", {
+          type: item.link_type,
+          itemId: item.param,
+          name: item.heading
+        });
+        break;
+      case "BRS":
+        this.props.navigation.navigate("ProductList", {
+          type: item.link_type,
+          itemId: item.param,
+          name: item.heading
+        });
+        break;
+      case "CI":
+        this.props.navigation.navigate("ShopBy", {
+          type: Constants.SOURCING_LOCATION
+        });
+        break;
+      case "BR":
+        this.props.navigation.navigate("ShopBy", {
+          type: Constants.SHOP
+        });
+        break;
+      case "CU":
+        this.props.navigation.navigate("ProductList", {
+          itemId: item.param,
+          type: Constants.CUISINE,
+          name: item.heading
+        });
+        break;
+      case "R":
+        this.props.navigation.navigate("Refferal");
+        break;
       default:
         break;
     }
@@ -150,9 +187,9 @@ class Home extends Component {
         banners={this.props.banners}
         bannerClicked={this.bannerClicked}
         options={this.props.options}
-        optionClicked={this.optionClicked}
         categories={this.props.categories}
-        categoryClicked={this.categoryClicked}
+      // optionClicked={this.optionClicked}
+      // categoryClicked={this.categoryClicked}
       // locationClicked={this.locationClicked}
       />
     );
