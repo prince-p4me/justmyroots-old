@@ -9,6 +9,7 @@
     "c": "cd android && ./gradlew clean && cd .. && yarn a"
   },
   "dependencies": {
+    "@react-native-community/clipboard": "^1.0.0",
     "apisauce": "^1.0.0",
     "moment": "^2.23.0",
     "native-base": "^2.8.1",

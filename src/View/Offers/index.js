@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import LoadingIndicator from "../Components/LoadingIndicator";
 import { Toast, Icon } from "native-base";
 import { StyleSheet, Text, View, Image, SafeAreaView, TouchableOpacity, FlatList, Dimensions } from "react-native";
-// import Clipboard from '@react-native-community/clipboard';
+import Clipboard from '@react-native-community/clipboard';
 import colors from "../Themes/Colors";
 import NormalHeader from "../Components/NormalHeader";
 
@@ -51,7 +51,8 @@ class Offers extends Component {
     }
 
     copyCode = async (item) => {
-        await Clipboard.setString(item.couponCode);
+        await Clipboard.setString(item.code);
+        console.log("code coppied", item)
     }
 
     renderOffer = ({ item }) => {
@@ -65,7 +66,7 @@ class Offers extends Component {
                     paddingHorizontal: "2%"
                 }} activeOpacity={.7}
                     onPress={() => {
-                        // this.copyCode(item);
+                        this.copyCode(item);
                     }}>
                     <View style={{ flex: 1, flexDirection: "row", alignItems: "center" }}>
                         {item.couponType && <View style={{ flex: 6, justifyContent: "center", }}>
