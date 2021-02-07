@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 // import { WebView } from "react-native-webview";
-import actions from "../../Store/Redux/order";
+import actions from "../../Store/Redux/offers";
 import { connect } from "react-redux";
 import LoadingIndicator from "../Components/LoadingIndicator";
 import { Toast, Icon } from "native-base";
@@ -41,52 +41,59 @@ class Offers extends Component {
             }]
         };
     }
+
     componentDidMount = async () => {
         // let response = await axios.get('xyz')
+        this.props.offersRequest({
+            shippingLocationId: this.props.shippingLocation.id,
+            token: this.props.token
+        });
     }
 
     copyCode = async (item) => {
         await Clipboard.setString(item.couponCode);
     }
 
-    OfferList = ({ item }) => {
+    renderOffer = ({ item }) => {
+        // console.log("item", item)
         return (
             <View style={{ marginTop: 8 }}>
                 <TouchableOpacity style={{
-                    height: 40, width: "90%",
+                    height: 40, width: "95%",
                     backgroundColor: colors.ember, borderRadius: 5,
-                    marginHorizontal: "5%", flexDirection: "row",
-                    paddingHorizontal: "4%"
-                }}
+                    marginHorizontal: "2.5%", flexDirection: "row",
+                    paddingHorizontal: "2%"
+                }} activeOpacity={.7}
                     onPress={() => {
                         // this.copyCode(item);
                     }}>
-                    <View style={{ flex: 5, justifyContent: "center", }}>
-                        <Text style={{ color: 'white', fontSize: 20 }}> {item.codeType}</Text>
-                    </View>
-                    <View style={{ flex: 5, marginLeft: '5%', flexDirection: "row" }}>
+                    <View style={{ flex: 1, flexDirection: "row", alignItems: "center" }}>
+                        {item.couponType && <View style={{ flex: 6, justifyContent: "center", }}>
+                            <Text numberOfLines={1} style={{ color: 'white', fontSize: 20 }}> {item.couponType}</Text>
+                        </View>}
                         <View style={{
-                            flex: 1, justifyContent: "center",
+                            paddingLeft: '5%', justifyContent: "center",
                             alignItems: "center"
                         }}>
                             <Text style={{
                                 color: 'white', fontWeight: 'bold',
                                 fontSize: 20
-                            }}> {item.couponCode}</Text>
+                            }}> {item.code}</Text>
                         </View>
-                        <View style={{
-                            flex: 1, justifyContent: "center",
-                            alignItems: "flex-end"
-                        }}>
-                            <Icon style={{ color: "white" }}
-                                type="MaterialIcons" name="content-copy" />
-                        </View>
+                    </View>
+                    <View style={{
+                        width: 40, height: 40,
+                        justifyContent: "center",
+                        alignItems: "flex-end"
+                    }}>
+                        <Icon style={{ color: "white" }}
+                            type="MaterialIcons" name="content-copy" />
                     </View>
                 </TouchableOpacity>
                 <Text style={{
                     marginTop: 8, marginHorizontal: "5%",
                     fontWeight: "bold", color: "black"
-                }}>{item.heading}</Text>
+                }}>{item.title}</Text>
                 <Text style={{
                     marginTop: 8, alignSelf: "center",
                     color: "black", marginHorizontal: "5%"
@@ -104,33 +111,38 @@ class Offers extends Component {
         )
     }
 
+    renderHeader = () => {
+        return (
+            <View style={{ height: Dimensions.get("window").height / 3 }}>
+                <View style={{ flex: 2 }}>
+                    <Image source={offerIcon} style={{ height: "100%", width: "100%" }}
+                        resizeMode="stretch" />
+                </View>
+                <View style={{ flex: 1 }}>
+                    <Text style={{
+                        fontWeight: 'bold', fontSize: 40,
+                        color: colors.ember, alignSelf: "center"
+                    }}>JMR COUPONS</Text>
+                    <View style={{
+                        height: 2.5, width: "100%",
+                        backgroundColor: colors.ember, marginTop: 5
+                    }} />
+                </View>
+            </View>
+        )
+    }
+
     render() {
+        console.log("offers", this.props.offers)
         return (
             <View style={{ height: '100%', width: "100%", backgroundColor: "white" }}>
                 <SafeAreaView />
                 <NormalHeader title="OFFERS" navigation={this.props.navigation} />
                 <FlatList
                     contentContainerStyle={{ flexGrow: 1 }}
-                    ListHeaderComponent={() => (
-                        <View style={{ height: Dimensions.get("window").height / 3 }}>
-                            <View style={{ flex: 2 }}>
-                                <Image source={offerIcon} style={{ height: "100%", width: "100%" }}
-                                    resizeMode="stretch" />
-                            </View>
-                            <View style={{ flex: 1 }}>
-                                <Text style={{
-                                    fontWeight: 'bold', fontSize: 40,
-                                    color: colors.ember, alignSelf: "center"
-                                }}>JMR COUPONS</Text>
-                                <View style={{
-                                    height: 2.5, width: "100%",
-                                    backgroundColor: colors.ember, marginTop: 5
-                                }} />
-                            </View>
-                        </View>
-                    )}
-                    data={this.state.data}
-                    renderItem={this.OfferList}
+                    ListHeaderComponent={this.renderHeader}
+                    data={this.props.offers}
+                    renderItem={this.renderOffer}
                     keyExtractor={(id, index) => index.toString()}
                     showsVerticalScrollIndicator={false}
                 />
@@ -139,9 +151,11 @@ class Offers extends Component {
     }
 }
 
-const mapStateToProps = ({ order }) => ({
-    orderId: order.orderId,
-    paymentStatus: order.paymentStatus
+const mapStateToProps = ({ refferral, offers, shippingLocation, authentication }) => ({
+    data: refferral.refferral,
+    token: authentication.token,
+    shippingLocation: shippingLocation.selectedShippingLocation,
+    offers: offers.offers
 });
 
 const mapDispatchToProps = actions;

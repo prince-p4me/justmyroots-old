@@ -26,6 +26,7 @@ import { MyOrderTypes } from "../Redux/myOrder";
 import { GeoTypes } from "../Redux/geo";
 import { PackingTypes } from "../Redux/packing";
 import { DfhTypes } from "../Redux/dfh";
+import { OfferTypes } from "../Redux/offers";
 
 /* ------------- Sagas ------------- */
 
@@ -80,6 +81,7 @@ export default function* root() {
       api
     ),
     takeLatest(RefferralTypes.REFFERRAL_REQUEST, refferralSagas.getRefferralData, api),
+    takeLatest(OfferTypes.OFFERS_REQUEST, refferralSagas.getOffers, api),
     takeLatest(BannerTypes.BANNERS_REQUEST, bannerSagas.getBanners, api),
     takeLatest(Banner1Types.BANNERS1_REQUEST, bannerSagas.getBanners1, api),
     takeLatest(Banner2Types.BANNERS2_REQUEST, bannerSagas.getBanners2, api),

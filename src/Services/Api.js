@@ -92,6 +92,7 @@ const create = (baseURL = Constant.API_URL) => {
     api.post("getShippingAddresses", parameters);
   const getBillingAddresses = parameters =>
     api.post("getBillingAddresses", parameters);
+  const getOffers = parameters => api.post("getOffers", parameters);
   const getOrderSummary = parameters => api.post("getOrderSummary", parameters);
   const getDfhSummary = parameters => api.post("getDfhSummary", parameters);
   const createOrder = parameters => api.post("createOrder", parameters);
@@ -127,6 +128,7 @@ const create = (baseURL = Constant.API_URL) => {
   //
   return {
     // a list of the API functions from step 2
+    getOffers,
     getRefferralData,
     getCategories,
     getSubCategories,
