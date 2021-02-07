@@ -1,5 +1,6 @@
 import { put, call } from "redux-saga/effects";
 import OffersActions from "../Redux/offers";
+import RefferralActions from "../Redux/refferral";
 
 export function* getRefferralData(api, action) {
   yield put(RefferralActions.refferralPending());

@@ -24,8 +24,11 @@ class Refferal extends Component {
         this.props.refferralRequest({ token: this.props.token });
     }
 
-    onShare = async msg => {
-        let message = msg ? msg : "React native is good framework";
+    onShare = async data => {
+        if (!data || data.referralMessage) {
+            return
+        }
+        let message = data.referralMessage + " " + data.referralLink;
         try {
             const result = await Share.share({ message });
             if (result.action === Share.sharedAction) {
@@ -57,7 +60,7 @@ class Refferal extends Component {
                     <View style={{ flex: 1, paddingVertical: 20, paddingHorizontal: 12 }}>
                         <Title style={{ fontSize: 24, color: colors.ember }}>{data.referralTitle}</Title>
                         <TouchableOpacity activeOpacity={.7} style={styles.shareBtn}
-                            onPress={() => this.onShare()}>
+                            onPress={() => this.onShare(data.userReferral)}>
                             <Title style={{ fontSize: 34, color: "white" }}>
                                 {data.userReferral.referralCode ? data.userReferral.referralCode : "JMR#01"}</Title>
                             <Icon style={{ color: "white" }}
