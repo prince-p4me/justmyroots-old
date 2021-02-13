@@ -3,7 +3,7 @@ import ProfileActions from "../Redux/profile";
 
 export function* getProfile(api, action) {
   const response = yield call(api.getProfile, action.parameters);
-
+  console.log("getProfile", response);
   if (response.ok) {
     // console.log(JSON.stringify(response.data));
     yield put(ProfileActions.getProfileSuccess(response.data));

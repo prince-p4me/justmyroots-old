@@ -11,6 +11,9 @@ export default {
   TO: "TO",
   DFH_FLOW: "DFH_FLOW",
   SALES_FLOW: "SALES_FLOW",
-  API_URL: "https://justmyroots.com/jmr2021/api/jmr/"
+  OTP_SUCCESS: "OTP_SUCCESS",
+  EMPTY_LIST: "EMPTY_LIST",
+  // API_URL: "https://justmyroots.com/jmr2021/api/jmr/",
+  API_URL: "http://jmr2021.justmyroots.com/api/jmr/",
   // API_URL: "http://dev.justmyroots.com/api/jmr/"
 };

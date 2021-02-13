@@ -3,6 +3,7 @@ import { FlatList, TouchableWithoutFeedback } from "react-native";
 import { Text, Body, Radio, Right, ListItem } from "native-base";
 import withSpinner from "../HOC/withSpinner";
 const RadioList = ({ items, itemClicked }) => {
+  console.log("items", items)
   return (
     <FlatList
       data={items}

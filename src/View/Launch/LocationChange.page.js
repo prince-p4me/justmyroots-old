@@ -12,10 +12,10 @@ const LocationChange = ({
   <Container>
     <HeaderWithTitle title="Select Delivery Location" />
     <Content>
-      <RadioList
+      {(shippingLocations && shippingLocations.length) ? <RadioList
         items={shippingLocations}
         itemClicked={shippingLocationSelected}
-      />
+      /> : null}
     </Content>
   </Container>
 );

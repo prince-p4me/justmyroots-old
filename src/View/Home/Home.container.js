@@ -42,7 +42,7 @@ class Home extends Component {
   shouldComponentUpdate(nextProps, nextState, nextContext) {
     const { shippingLocation } = nextProps;
     // const { bannersRequest, banners1Request, banners2Request } = this.props;
-    if (shippingLocation.id != this.props.shippingLocation.id) {
+    if (this.props.shippingLocation && shippingLocation.id != this.props.shippingLocation.id) {
       this.props.bannersRequest(shippingLocation.id);
       this.props.banners1Request(shippingLocation.id);
       this.props.banners2Request(shippingLocation.id);

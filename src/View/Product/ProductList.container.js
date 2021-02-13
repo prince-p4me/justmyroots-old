@@ -8,17 +8,27 @@ import List from "../Components/List";
 import Constants from "../../Services/Constant";
 import FilterList from "../Components/FilterList";
 import ItemList from "../Components/ItemList";
-import { Container, Content } from "native-base";
+import { Container, Content, Toast } from "native-base";
 import CustomHeader from "../Components/CustomHeader";
+import { DeviceEventEmitter } from "react-native";
+import Constant from "../../Services/Constant";
 
 class ProductList extends Component {
   constructor(props) {
     super(props);
     this.state = { selectedFilterId: null };
+    DeviceEventEmitter.addListener(Constant.EMPTY_LIST, () => {
+      Toast.show({ text: "Items not Found ...", duration: 3000, buttonText: "Okay" })
+      this.props.navigation.goBack();
+    })
   }
 
   static navigationOptions = {
     header: null
+  }
+
+  componentWillUnmount() {
+    DeviceEventEmitter.removeAllListeners();
   }
 
   parameters = { shippingLocationId: this.props.shippingLocation.id, foodPref: this.props.ftype.ftype };

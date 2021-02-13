@@ -15,7 +15,7 @@ const RegisterForm = ({
   <Container>
     <Content padder>
       <Label text={mobile} />
-      <ProfileForm handleSubmit={handleSubmit} fetching={fetching} />
+      <ProfileForm handleSubmit={handleSubmit} register={true} fetching={fetching} />
     </Content>
   </Container>
 );

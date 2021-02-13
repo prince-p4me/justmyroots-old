@@ -11,14 +11,14 @@ class Otp extends Component {
       mobile: this.props.mobile
     });
   };
+
   shouldComponentUpdate(nextProps, nextState, nextContext) {
     const { verified, processed, tempToken, token } = nextProps;
+    console.log("nextProps OTP container", nextProps)
     let message = null;
     if (processed && !verified) {
       message = "OTP did not match";
-    } else if (processed && verified && tempToken) {
-      this.props.navigation.navigate("Register");
-    } else if (processed && verified && token) {
+    } if (processed && verified && token) {
       this.props.navigation.popToTop(); // Reset all modal of modal stacks. (this is available since 1.0.0 I think).
       this.props.navigation.goBack(null); // Then close modal itself to display the main app screen nav.
     }
@@ -51,7 +51,7 @@ const mapStateToProps = ({ authentication }) => ({
   verified: authentication.verified,
   processed: authentication.processed,
   token: authentication.token,
-  tempToken: authentication.tempToken
+  tempToken: authentication.tempToken,
 });
 const mapDispatchToProps = actions;
 

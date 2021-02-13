@@ -3,7 +3,7 @@ import ShippingLocationActions from "../Redux/shippingLocation";
 
 export function* getShippingLocations(api) {
   const response = yield call(api.getShippingLocations);
-
+  console.log("getShippingLocations", response)
   if (response.ok) {
     yield put(ShippingLocationActions.shippingLocationsSuccess(response.data));
   } else {

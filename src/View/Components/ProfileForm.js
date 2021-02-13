@@ -6,7 +6,7 @@ import FormField from "../Components/FormField";
 import FormDatePicker from "../Components/FormDatePicker";
 import FormValidation from "../../Services/FormValidation";
 
-const ProfileForm = ({ handleSubmit, fetching }) => (
+const ProfileForm = ({ handleSubmit, register, fetching }) => (
   <Form>
     <Field
       name="firstName"
@@ -41,6 +41,12 @@ const ProfileForm = ({ handleSubmit, fetching }) => (
       component={FormDatePicker}
       placeholder="Date of Anniversary"
     />
+    {register && <Field
+      name="referralCode"
+      type="default"
+      component={FormField}
+      placeholder="Referral Code"
+    />}
     <ButtonWithLoader
       fetching={fetching}
       title="Submit"

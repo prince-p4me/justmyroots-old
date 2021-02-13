@@ -74,7 +74,8 @@ export const verifyMobilePending = state => ({
   fetching: true,
   processed: false,
   token: null,
-  tempToken: null
+  tempToken: null,
+  verified: false
 });
 
 // successful avatar lookup
@@ -85,7 +86,7 @@ export const verifyMobileSuccess = (state, { response }) => {
     token: response.token,
     tempToken: response.tempToken,
     fetching: false,
-    processed: true
+    processed: true,
   };
 };
 
@@ -108,9 +109,11 @@ export const registerProfilePending = state => ({
 export const registerProfileSuccess = (state, { response }) => {
   return {
     ...state,
-    token: response.token,
+    // token: response.token,
     fetching: false,
-    processed: true
+    processed: true,
+    status: response.status,
+    otp: response.otp
   };
 };
 

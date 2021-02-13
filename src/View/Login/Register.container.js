@@ -14,17 +14,19 @@ class Register extends Component {
     if (form.anniversary) {
       form.anniversary = moment(form.anniversary).format("DD/MM/YYYY");
     }
-    form.tempToken = this.props.tempToken;
+    form.mobile = this.props.mobile;
     this.props.registerProfileRequest(form);
   };
 
   shouldComponentUpdate(nextProps, nextState, nextContext) {
+    console.log("nextProps", nextProps);
     const { fetching, processed, tempToken, token } = nextProps;
-    if (processed && !fetching) {
-      this.props.navigation.popToTop(); // Reset all modal of modal stacks. (this is available since 1.0.0 I think).
-      this.props.navigation.goBack(null); // Then close modal itself to display the main app screen nav.
+    if (processed && !fetching && nextProps.authentication.status) {
+      // this.props.navigation.popToTop(); // Reset all modal of modal stacks. (this is available since 1.0.0 I think).
+      // this.props.navigation.goBack(null); // Then close modal itself to display the main app screen nav.
+      this.props.navigation.navigate("Otp");
       Toast.show({
-        text: "Registered Successfully",
+        text: "OTP sent Successfully",
         buttonText: "Okay",
         duration: 3000
       });
@@ -48,7 +50,8 @@ const mapStateToProps = ({ authentication }) => ({
   fetching: authentication.fetching,
   processed: authentication.processed,
   mobile: authentication.mobile,
-  tempToken: authentication.tempToken
+  tempToken: authentication.tempToken,
+  authentication
 });
 const mapDispatchToProps = actions;
 

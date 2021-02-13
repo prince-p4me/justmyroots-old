@@ -1,13 +1,16 @@
 import { put, call } from "redux-saga/effects";
 import ProductActions from "../Redux/product";
-
+import { DeviceEventEmitter } from "react-native";
+import Constant from "../../Services/Constant";
 export function* getProducts(api, action) {
   yield put(ProductActions.productsPending());
   const response = yield call(api.getProducts, action.parameters);
-
+  console.log("getProducts", response);
   if (response.ok) {
     yield put(ProductActions.productsSuccess(response.data));
+    // DeviceEventEmitter.emit(Constant.EMPTY_LIST, response.data);
   } else {
+    DeviceEventEmitter.emit(Constant.EMPTY_LIST, response.data);
     console.log("The error occured");
     // yield put(GithubActions.userFailure())
   }

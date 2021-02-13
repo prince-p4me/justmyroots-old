@@ -15,6 +15,7 @@ class LocationChange extends Component {
   //     headerTitleStyle: { textAlign: "center", alignSelf: "center" }
   //   };
   componentDidMount() {
+    console.log("LocationChange")
     this.props.shippingLocationsRequest();
   }
 
@@ -27,12 +28,18 @@ class LocationChange extends Component {
     this.props.navigation.navigate("TabNavigator");
   };
 
-  getShippingLocations = () =>
-    this.props.shippingLocations.map(location =>
-      location.id == this.props.selectedShippingLocation.id
-        ? { ...location, selected: true }
-        : location
-    );
+  getShippingLocations = () => {
+    if (Array.isArray(this.props.shippingLocations)) {
+      return this.props.shippingLocations.map(location =>
+        location.id == this.props.selectedShippingLocation.id
+          ? { ...location, selected: true }
+          : location
+      )
+    } else {
+      return []
+    }
+  };
+
   render() {
     return (
       <LocationChangePage

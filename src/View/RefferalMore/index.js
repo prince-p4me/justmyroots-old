@@ -61,7 +61,7 @@ class RefferalMore extends Component {
                         <TouchableOpacity activeOpacity={.7} style={styles.shareBtn}
                             onPress={() => this.onShare()}>
                             <Title style={{ fontSize: 34, color: "white" }}>
-                                {data.userReferral.referralCode ? data.userReferral.referralCode : "JMR#01"}</Title>
+                                {data.userReferral?.referralCode ? data.userReferral?.referralCode : "JMR#01"}</Title>
                             <Icon style={{ color: "white" }}
                                 type="MaterialIcons" name="content-copy" />
                         </TouchableOpacity>
