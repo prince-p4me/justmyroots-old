@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import shippingLocationActions from "../../Store/Redux/shippingLocation";
 import cartActions from "../../Store/Redux/cart";
 import LocationChangePage from "./LocationChange.page";
-
+import { Toast } from "native-base";
 class LocationChange extends Component {
   constructor(props) {
     super(props);
@@ -20,6 +20,7 @@ class LocationChange extends Component {
   }
 
   shippingLocationSelected = location => {
+    Toast.show({ text: "Your cart has been refreshed", duration: 3000, buttonText: "Okay" });
     this.props.setShippingLocationRequest(location);
     this.props.emptyCart();
     this.props.navigation.navigate("TabNavigator");
