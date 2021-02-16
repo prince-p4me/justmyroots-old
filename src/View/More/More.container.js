@@ -37,7 +37,7 @@ class More extends Component {
     },
     myRefferrals: {
       icon: "users",
-      title: "My Refferrals",
+      title: "My Referrals",
       // subtitle: "JMR#11",
       menuClicked: () => this.props.navigation.navigate("RefferalMore")
     },

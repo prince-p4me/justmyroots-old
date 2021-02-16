@@ -45,7 +45,7 @@ class SearchProducts extends Component {
   }
 }
 
-const mapStateToProps = ({ product, shippingLocation }) => ({
+const mapStateToProps = ({ product, shippingLocation, ftype }) => ({
   products: product.searchProducts,
   fetching: product.fetching,
   shippingLocationId: shippingLocation.selectedShippingLocation.id,

@@ -25,9 +25,6 @@ class Refferal extends Component {
     }
 
     onShare = async data => {
-        if (!data || data.referralMessage) {
-            return
-        }
         let message = data.referralMessage + " " + data.referralLink;
         try {
             const result = await Share.share({ message });
@@ -49,11 +46,11 @@ class Refferal extends Component {
 
     render() {
         const { data } = this.props;
-        console.log("refferral", data);
+        console.log("referral", data);
         return (
             <View style={{ height: '100%', width: "100%", backgroundColor: "white" }}>
                 <SafeAreaView />
-                <NormalHeader title="REFFERRAL" navigation={this.props.navigation} />
+                <NormalHeader title="REFERRAL" navigation={this.props.navigation} />
                 <View style={{ flex: 1 }}>
                     <ImageBackground source={{ uri: data.referralBannerImage }} resizeMode="cover"
                         style={{ height: Dimensions.get("window").height / 3.3, width: "100%" }} />

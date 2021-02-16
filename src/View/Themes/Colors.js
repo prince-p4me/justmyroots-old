@@ -14,7 +14,7 @@ const colors = {
   charcoal: "#595959",
   lightCharcoal: "#D3D3D3",
   coal: "#2d2d2d",
-  leaf: "#818e27",
+  leaf: "#32CD32",
   bloodOrange: "#8e2781",
   snow: "white",
   ember: "#a11f22",

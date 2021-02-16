@@ -6,13 +6,15 @@ import ModalNavigator from "./ModalNavigator";
 import LoginModalNavigator from "./LoginModalNavigator";
 import Icon from "react-native-vector-icons/FontAwesome";
 import React from "react";
-import { Colors } from "../Themes";
+import { View, Text } from "react-native";
+import { Badge } from "native-base";
+import { Colors, Fonts } from "../Themes";
 import SearchProducts from "../Product/SearchProducts.container";
 import CartModalNavigator from "./CartModalNavigator";
 import SearchNavigator from "./SearchNavigator";
 import MoreNavigator from "./MoreNavigator";
 import HomeNavigator from "./HomeNavigator";
-
+import BadgeIcon from "../Components/BadgeIcon";
 export default createBottomTabNavigator(
   {
     Home: HomeNavigator,
@@ -44,7 +46,12 @@ export default createBottomTabNavigator(
         // You can return any component that you like here! We usually use an
         // icon component from react-native-vector-icons
         return (
-          <Icon name={iconName} size={horizontal ? 20 : 25} color={tintColor} />
+          <View style={{ flex: 1 }}>
+            <Icon name={iconName} size={horizontal ? 20 : 25} color={tintColor} />
+            {
+              (routeName == "Cart") && <BadgeIcon />
+            }
+          </View>
         );
       },
     }),

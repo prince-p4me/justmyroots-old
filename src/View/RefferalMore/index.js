@@ -52,7 +52,7 @@ class RefferalMore extends Component {
         return (
             <View style={{ height: '100%', width: "100%", backgroundColor: "white" }}>
                 <SafeAreaView />
-                <NormalHeader title="REFFERRAL" navigation={this.props.navigation} />
+                <NormalHeader title="REFERRAL" navigation={this.props.navigation} />
                 <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
                     <ImageBackground source={{ uri: data.referralBannerImage }} resizeMode="cover"
                         style={{ height: Dimensions.get("window").height / 3.3, width: "100%" }} />

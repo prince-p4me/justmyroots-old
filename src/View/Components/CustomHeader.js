@@ -69,13 +69,14 @@ class CustomHeader extends Component {
           <TouchableOpacity style={styles.locationBtn} onPress={() => {
             navigation.navigate("LaunchNavigator");
           }}>
+            <Title style={{ fontSize: 14, color: Colors.ember, marginEnd: 4 }}>Deelivery@</Title>
             <Title style={{ fontSize: 14, color: Colors.charcoal }}>{location?.name}</Title>
             <Icon type="FontAwesome" style={{
               color: Colors.charcoal,
               position: "absolute", top: -10, right: 10
             }} name="sort-down" />
           </TouchableOpacity>
-          <TextInput style={styles.pincodeBOx}
+          {/* <TextInput style={styles.pincodeBOx}
             placeholder="Pin Code"
             placeholderTextColor={Colors.charcoal}
             value={pincode}
@@ -83,7 +84,7 @@ class CustomHeader extends Component {
             maxLength={8}
             keyboardType="numeric"
             returnKeyLabel="Done"
-            returnKeyType="done"></TextInput>
+            returnKeyType="done"></TextInput> */}
           <TouchableOpacity activeOpacity={.8} style={[styles.vgBtn, {
             backgroundColor: category == "Veg" ? Colors.leaf : Colors.charcoal
           }]} onPress={() => this.setCategory("Veg")}>
