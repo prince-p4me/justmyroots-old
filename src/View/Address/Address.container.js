@@ -5,15 +5,17 @@ import profileActions from "../../Store/Redux/profile";
 import AddressPage from "./Address.page";
 import Constants from "../../Services/Constant";
 import { Toast } from "native-base";
+import { Alert } from "react-native";
 
 class Address extends Component {
   componentDidMount() {
+    console.log("Address")
     this.fetchAddress();
   }
 
   fetchAddress = () => {
     let parameters = {
-      shippingLocationId: this.props.shippingLocationId,
+      shippingLocationId: this.props.shippingLocation.id,
       token: this.props.token
     };
     if (this.props.navigation.state.params.type == Constants.SHIPPING_ADDRESS) {
@@ -22,6 +24,7 @@ class Address extends Component {
       this.props.billingAddressRequest(parameters);
     }
   };
+
   shouldComponentUpdate(nextProps, nextState, nextContext) {
     const { newAddressCreated } = nextProps;
     if (newAddressCreated) {
@@ -34,9 +37,20 @@ class Address extends Component {
     this.props.navigation.navigate("AddAddress");
     this.props.getProfileRequest({ token: this.props.token });
   };
+
+  showALert = () => {
+    Alert.alert("Location mismatched",
+      "Kindly change you address with your selected city for shipping",
+      [
+        { text: "Okay", onPress: () => console.log("OK Pressed") }
+      ])
+  }
+
   next = () => {
     if (this.props.navigation.state.params.type == Constants.SHIPPING_ADDRESS) {
-      if (this.props.shippingAddresses.length > 0) {
+      if (!this.canShipToThisAddress() && this.props.shippingAddresses.length) {
+        this.showALert();
+      } else if (this.props.shippingAddresses.length > 0 && this.canShipToThisAddress()) {
         this.props.navigation.navigate("BillingAddress", {
           type: Constants.BILLING_ADDRESS,
           name: "Billing Address"
@@ -61,10 +75,23 @@ class Address extends Component {
     }
   };
 
+  canShipToThisAddress = () => {
+    let { shippingLocation, shippingAddresses } = this.props;
+    for (let i = 0; i < shippingAddresses.length; i++) {
+      if (shippingAddresses[i].selected && (shippingAddresses[i].city_name.toLowerCase() == shippingLocation.name.toLowerCase())) {
+        return true;
+      };
+    }
+    return false;
+  }
+
   selectAddress = address => {
-    this.props.navigation.state.params.type == Constants.SHIPPING_ADDRESS
-      ? this.props.selectShippingAddress(address.address_id)
-      : this.props.selectBillingAddress(address.address_id);
+    let { navigation, selectShippingAddress, selectBillingAddress } = this.props;
+    if (navigation.state.params.type == Constants.SHIPPING_ADDRESS) {
+      selectShippingAddress(address.address_id)
+    } else {
+      selectBillingAddress(address.address_id);
+    }
   };
 
   static navigationOptions = {
@@ -93,7 +120,7 @@ const mapStateToProps = ({ address, shippingLocation, authentication }) => ({
   shippingAddresses: address.shippingAddresses,
   billingAddresses: address.billingAddresses,
   newAddressCreated: address.newAddressCreated,
-  shippingLocationId: shippingLocation.selectedShippingLocation.id,
+  shippingLocation: shippingLocation.selectedShippingLocation,
   token: authentication.token
 });
 

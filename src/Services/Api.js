@@ -91,7 +91,7 @@ const create = (baseURL = Constant.API_URL) => {
   const getTimeSlots = parameters =>
     api.post("getTimeSlotsForDate", parameters);
   const getShippingAddresses = parameters =>
-    api.post("getShippingAddresses", parameters);
+    api.post("getUserAddress", parameters);
   const getBillingAddresses = parameters =>
     api.post("getBillingAddresses", parameters);
   const getOffers = parameters => api.post("getOffers", parameters);
