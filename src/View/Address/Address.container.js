@@ -40,7 +40,7 @@ class Address extends Component {
 
   showALert = () => {
     Alert.alert("Location mismatched",
-      "Kindly change you address with your selected city for shipping",
+      "Kindly change your address with your selected city for shipping",
       [
         { text: "Okay", onPress: () => console.log("OK Pressed") }
       ])
