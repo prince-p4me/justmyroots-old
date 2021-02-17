@@ -57,8 +57,8 @@ const CartSection = ({
         <Text note>Change</Text>
       </Right>
     </ListItem>
-    <BagType bagTypeOptions={bagTypeOptions} item={item} />
-    <GiftingType giftingTypeOptions={giftingTypeOptions} item={item} />
+    {/* <BagType bagTypeOptions={bagTypeOptions} item={item} />
+    <GiftingType giftingTypeOptions={giftingTypeOptions} item={item} /> */}
   </View>
 );
 

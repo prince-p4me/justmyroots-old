@@ -77,8 +77,12 @@ class Address extends Component {
 
   canShipToThisAddress = () => {
     let { shippingLocation, shippingAddresses } = this.props;
+    const cities = ["gurugram", "gurgaon"];
+    const cities1 = ["delhi", "new delhi"];
     for (let i = 0; i < shippingAddresses.length; i++) {
-      if (shippingAddresses[i].selected && (shippingAddresses[i].city_name.toLowerCase() == shippingLocation.name.toLowerCase())) {
+      let city = shippingAddresses[i].city_name.toLowerCase();
+      let city1 = shippingLocation.name.toLowerCase();
+      if (shippingAddresses[i].selected && ((city == city1) || (cities.includes(city) && cities.includes(city1)) || (cities1.includes(city) && cities1.includes(city1)))) {
         return true;
       };
     }
