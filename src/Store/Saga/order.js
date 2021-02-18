@@ -6,6 +6,7 @@ export function* getOrderSummary(api, action) {
   const response = yield call(api.getOrderSummary, action.parameters);
 
   if (response.ok) {
+    console.warn(response.data)
     yield put(actions.orderSummarySuccess(response.data));
   } else {
     console.log("The error occured");

@@ -135,6 +135,9 @@ class Home extends Component {
       case "R":
         this.props.navigation.navigate("Refferal");
         break;
+      case "W":
+        this.props.navigation.navigate("WishDishScreen");
+        break;
       default:
         break;
     }

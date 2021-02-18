@@ -9,6 +9,7 @@ import Constant from "../../Services/Constant";
 
 class OrderSummary extends Component {
   componentDidMount() {
+    console.warn(this.props.order)
     if (this.props.coupon) {
       this.props.setCouponCode(null);
     } else {
@@ -44,7 +45,8 @@ class OrderSummary extends Component {
     }
   }
   fetchLoyaltyPoints() {
-    this.props.loyaltyPointsRequest(this.props.token);
+    this.props.loyaltyPointsRequest({ token: this.props.token });
+    // this.props.loyaltyPointsRequest(this.props.token);
   }
   // shouldComponentUpdate(nextProps, nextState, nextContext) {
   //   const { couponStatus, fetching, useLoyaltyPoints } = nextProps;
@@ -88,6 +90,7 @@ class OrderSummary extends Component {
       coupon,
       useLoyaltyPoints
     };
+    console.warn(parameters)
     this.props.orderSummaryRequest(parameters);
   };
 

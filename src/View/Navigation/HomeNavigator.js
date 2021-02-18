@@ -41,7 +41,7 @@ import PickupDate from "../DFH/PickupDate.container";
 import PickupTimeSlot from "../DFH/PickupTimeSlot.container";
 import DeliveryTimeSlot from "../DFH/DeliveryTimeSlot.container";
 import DfhCentres from "../DFH/DfhCentres.container";
-
+import WishDishScreen from '../Wishdish/index'
 const HomeNavigator = createStackNavigator(
   {
     Home: {
@@ -49,6 +49,9 @@ const HomeNavigator = createStackNavigator(
     },
     SubCategories: {
       screen: ShopByOptions
+    },
+    WishDishScreen: {
+      screen: WishDishScreen
     },
     ProductList: {
       screen: ProductList
