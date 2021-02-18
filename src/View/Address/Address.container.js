@@ -6,6 +6,7 @@ import AddressPage from "./Address.page";
 import Constants from "../../Services/Constant";
 import { Toast } from "native-base";
 import { Alert } from "react-native";
+import Constant from "../../Services/Constant";
 
 class Address extends Component {
   componentDidMount() {
@@ -46,11 +47,13 @@ class Address extends Component {
       ])
   }
 
-  next = () => {
+  next = async () => {
     if (this.props.navigation.state.params.type == Constants.SHIPPING_ADDRESS) {
-      if (!this.canShipToThisAddress() && this.props.shippingAddresses.length) {
+      if (!await this.canShipToThisAddress() && this.props.shippingAddresses.length) {
+        // debugger;
         this.showALert();
-      } else if (this.props.shippingAddresses.length > 0 && this.canShipToThisAddress()) {
+      } else if (this.props.shippingAddresses.length > 0 && await this.canShipToThisAddress()) {
+        // debugger;
         this.props.navigation.navigate("BillingAddress", {
           type: Constants.BILLING_ADDRESS,
           name: "Billing Address"
@@ -75,16 +78,53 @@ class Address extends Component {
     }
   };
 
-  canShipToThisAddress = () => {
+  isPincodeVerified = async (pinCode) => {
+    let url = (Constant.API_URL + "getVerifyPincode/" + this.props.shippingLocation.id + "/" + pinCode);
+    console.log("url is:==", url);
+    try {
+      let response = await fetch(url, {
+        method: 'GET',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json'
+        }
+      });
+      // debugger
+      response = await response.json();
+      if (response && response.message) {
+        return response.status;
+      } else if (response && !response.message) {
+        return response;
+      }
+      console.log("response", response);
+    } catch (error) {
+      console.log("error", error);
+      Toast.show({ text: "Couldn't verified pincode . . .", duration: 3000, buttonText: "Okay" })
+      return false;
+    }
+  }
+
+  canShipToThisAddress = async () => {
     let { shippingLocation, shippingAddresses } = this.props;
     const cities = ["gurugram", "gurgaon"];
     const cities1 = ["delhi", "new delhi"];
+    let address = {};
     for (let i = 0; i < shippingAddresses.length; i++) {
-      let city = shippingAddresses[i].city_name.toLowerCase();
-      let city1 = shippingLocation.name.toLowerCase();
-      if (shippingAddresses[i].selected && ((city == city1) || (cities.includes(city) && cities.includes(city1)) || (cities1.includes(city) && cities1.includes(city1)))) {
-        return true;
+      if (shippingAddresses[i].selected) {
+        address = shippingAddresses[i];
+        break;
       };
+    }
+    if (address) {
+      let city = address.city_name.toLowerCase();
+      let city1 = shippingLocation.name.toLowerCase();
+      if (await this.isPincodeVerified(address.zip)) {
+        // debugger;
+        return true;
+      } else if (((city == city1) || (cities.includes(city) && cities.includes(city1)) || (cities1.includes(city) && cities1.includes(city1)))) {
+        // debugger;
+        return true;
+      }
     }
     return false;
   }
