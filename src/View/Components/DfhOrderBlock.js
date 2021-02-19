@@ -11,22 +11,8 @@ const DfhOrderBlock = ({ orderSummary }) => (
     </ListItem>
     <ListItem style={styles.listItem}>
       <View style={styles.shopLine3}>
-        <Text style={styles.left}>Fright Charges</Text>
+        <Text style={styles.left}>Freight Charges</Text>
         <Text style={styles.right}>Rs. {orderSummary.frightCharges}</Text>
-      </View>
-      <View style={styles.shopLine3}>
-        <Text style={styles.left}>Pickup Charges</Text>
-        <Text style={styles.right}>Rs. {orderSummary.pickupCharges}</Text>
-      </View>
-      <View style={styles.shopLine3}>
-        <Text style={styles.left}>Delivery Charges</Text>
-        <Text style={styles.right}>Rs. {orderSummary.deliveryCharges}</Text>
-      </View>
-      <View style={styles.shopLine3}>
-        <Text style={styles.left}>Packaging and Other Charges</Text>
-        <Text style={styles.right}>
-          Rs. {orderSummary.packagingOtherCharges}
-        </Text>
       </View>
       <View style={styles.shopLine3}>
         <Text style={styles.left}>GST</Text>

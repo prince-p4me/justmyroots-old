@@ -4,11 +4,11 @@ import actions from "../../Store/Redux/offers";
 import { connect } from "react-redux";
 import LoadingIndicator from "../Components/LoadingIndicator";
 import { Toast, Icon } from "native-base";
+import { Platform } from "react-native";
 import { StyleSheet, Text, View, Image, SafeAreaView, TouchableOpacity, FlatList, Dimensions } from "react-native";
 import Clipboard from '@react-native-community/clipboard';
 import colors from "../Themes/Colors";
 import NormalHeader from "../Components/NormalHeader";
-
 let offerIcon = require('./../Assets/coupons.png')
 
 
@@ -50,9 +50,16 @@ class Offers extends Component {
         });
     }
 
-    copyCode = async (item) => {
-        await Clipboard.setString(item.code);
-        console.log("code coppied", item)
+    copyCode = (item) => {
+        // if (Platform.OS == "android") {
+        //     Clipboard.default.setString(item.code);
+        // } else {
+        //     Clipboard.setString(item.code);
+        // }
+        Clipboard.setString(item.code);
+
+        console.log("code coppied", item);
+        Toast.show({ text: ("Coupon code " + item.code + " copied"), duration: 3000, buttonText: "Okay" })
     }
 
     renderOffer = ({ item }) => {

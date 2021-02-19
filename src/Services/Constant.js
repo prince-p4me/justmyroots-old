@@ -13,7 +13,8 @@ export default {
   SALES_FLOW: "SALES_FLOW",
   OTP_SUCCESS: "OTP_SUCCESS",
   EMPTY_LIST: "EMPTY_LIST",
-  API_URL: "https://justmyroots.com/jmr2021/api/jmr/",
+  API_URL: "https://justmyroots.com/api/jmr/",
+  // API_URL: "https://justmyroots.com/jmr2021/api/jmr/",
   // API_URL: "http://jmr2021.justmyroots.com/api/jmr/",
   // API_URL: "http://dev.justmyroots.com/api/jmr/"
 };

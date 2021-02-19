@@ -18,7 +18,7 @@ class PaymentGateway extends Component {
     }
     //For Testing
     // this.props.setPaymentStatus("Pending");
-    console.warn("https://justmyroots.com/jmr2021/home/makePayment/" + this.props.orderId)
+    console.warn("https://justmyroots.com/home/makePayment/" + this.props.orderId)
   };
 
   shouldComponentUpdate(nextProps, nextState, nextContext) {
@@ -37,8 +37,8 @@ class PaymentGateway extends Component {
     return (
       <WebView
         source={{
-          uri: "https://justmyroots.com/jmr2021/home/makePayment/" + this.props.orderId,
-          // uri: "https://justmyroots.com/home/makePayment/" + this.props.orderId
+          // uri: "https://justmyroots.com/jmr2021/home/makePayment/" + this.props.orderId,
+          uri: "https://justmyroots.com/home/makePayment/" + this.props.orderId
         }}
         onLoadStart={this.onLoadStart}
         renderLoading={this.renderLoadingView}
