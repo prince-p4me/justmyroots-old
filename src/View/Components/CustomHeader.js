@@ -69,7 +69,7 @@ class CustomHeader extends Component {
           <TouchableOpacity style={styles.locationBtn} onPress={() => {
             navigation.navigate("LaunchNavigator");
           }}>
-            <Title style={{ fontSize: 14, color: Colors.ember, marginEnd: 4 }}>Deelivery@</Title>
+            <Title style={{ fontSize: 14, color: Colors.ember, marginEnd: 4 }}>Delivery@</Title>
             <Title style={{ fontSize: 14, color: Colors.charcoal }}>{location?.name}</Title>
             <Icon type="FontAwesome" style={{
               color: Colors.charcoal,

@@ -28,7 +28,7 @@ const OrderProduct = ({ item }) => (
     ) : null}
 
     <View style={styles.shopLine3}>
-      <Text style={styles.left}>Tax</Text>
+      <Text style={styles.left}>Product GST</Text>
       <Text style={styles.right}>{item.tax * item.quantity}</Text>
     </View>
     <View style={styles.shopLine3}>

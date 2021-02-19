@@ -41,7 +41,11 @@ const OrderSection = ({ item, shippingLocation }) => (
         <Text style={styles.right}>{item.shipping}</Text>
       </View>
       <View style={styles.shopLine3}>
-        <Text style={styles.left}>GST</Text>
+        <Text style={styles.left}>GST on shipping charges</Text>
+        <Text style={styles.right}>{item.shippingTax}</Text>
+      </View>
+      <View style={styles.shopLine3}>
+        <Text style={styles.left}>Total GST</Text>
         <Text style={styles.right}>{item.tax}</Text>
       </View>
       <View style={styles.shopLine3}>

@@ -121,10 +121,11 @@ class Address extends Component {
       if (await this.isPincodeVerified(address.zip)) {
         // debugger;
         return true;
-      } else if (((city == city1) || (cities.includes(city) && cities.includes(city1)) || (cities1.includes(city) && cities1.includes(city1)))) {
-        // debugger;
-        return true;
       }
+      // else if (((city == city1) || (cities.includes(city) && cities.includes(city1)) || (cities1.includes(city) && cities1.includes(city1)))) {
+      //   // debugger;
+      //   return true;
+      // }
     }
     return false;
   }

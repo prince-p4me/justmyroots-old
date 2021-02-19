@@ -20,7 +20,7 @@ const Order = ({
 }) => {
   return (
     <Container>
-      <CustomHeader title="Order SUmmary" navigation={navigation} />
+      <CustomHeader title="Order Summary" navigation={navigation} />
       <Content padder>
         <OrderSectionList
           items={order.sections}
