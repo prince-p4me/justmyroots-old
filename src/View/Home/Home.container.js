@@ -61,8 +61,9 @@ class Home extends Component {
     });
     let jsonResposne = await response.json()
     console.warn(jsonResposne)
+    // alert(JSON.stringify(jsonResposne))
     if (Platform.OS == 'android') {
-      if (jsonResposne.android_version != '0.2.2') {
+      if (jsonResposne.android_version != '0.2.3') {
         this.props.navigation.navigate('ForceUpdateScreen')
         return;
       }

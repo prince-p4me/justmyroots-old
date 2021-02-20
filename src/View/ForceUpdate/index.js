@@ -55,7 +55,7 @@ class ForceUpdateScreen extends Component {
         const { profile } = this.props;
         return (
             <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-                <Text style={{ width: '70%', textAlign: "center", color: 'black', }}>Please Update you applicaiton otherwise it will stop working.</Text>
+                <Text style={{ width: '70%', textAlign: "center", color: 'black', }}>Please update your applicaiton otherwise it will stop working.</Text>
                 <TouchableOpacity style={{
                     height: 60, width: '80%',
                     backgroundColor: 'rgb(161,31,34)', justifyContent: "center",
