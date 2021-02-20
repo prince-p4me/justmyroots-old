@@ -13,14 +13,16 @@ import store, { persistor } from "./Store/";
 import AppNavigator from "./View/Navigation";
 import { PersistGate } from "redux-persist/lib/integration/react";
 import LoadingIndicator from "./View/Components/LoadingIndicator";
-
+import { SafeAreaView, View } from 'react-native'
 export default class App extends Component {
   render() {
     return (
       <Root>
         <Provider store={store}>
           <PersistGate loading={<LoadingIndicator />} persistor={persistor}>
-            <AppNavigator />
+            <SafeAreaView style={{ flex: 1 }}>
+              <AppNavigator />
+            </SafeAreaView>
           </PersistGate>
         </Provider>
       </Root>

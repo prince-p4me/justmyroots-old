@@ -2,7 +2,6 @@ import React from "react";
 import { Container, Content } from "native-base";
 import DeliveryLocation from "../Components/DeliveryLocation";
 import BannerList from "../Components/BannerList";
-
 const Home = ({ banners, bannerClicked, location, locationClicked }) => {
   return (
     <Container>

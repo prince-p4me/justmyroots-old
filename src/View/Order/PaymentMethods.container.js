@@ -15,6 +15,7 @@ class PaymentMethods extends Component {
         token,
         amount: orderSummary.booking_charges
       };
+      console.warn(parameters)
       this.props.paymentMethodsRequest(parameters);
     } else {
       let { shippingLocationId, token, amount } = this.props;
@@ -23,6 +24,7 @@ class PaymentMethods extends Component {
         token,
         amount
       };
+      console.warn(parameters)
       this.props.paymentMethodsRequest(parameters);
     }
   }
@@ -30,6 +32,7 @@ class PaymentMethods extends Component {
   selectPaymentMethod = method => {
     this.props.setPaymentMethod(method.type);
     this.props.setPaymentStatus(null);
+    console.warn(this.props.orderId)
     if (this.props.orderId && method.type != "card_on_delivery") {
       this.props.navigation.navigate("PaymentGateway");
     } else {
@@ -76,9 +79,10 @@ class PaymentMethods extends Component {
   createOrder = paymentType => {
     if (this.props.navigation.state.params.flow == Constant.DFH_FLOW) {
       let payment = { payment_type: paymentType };
-      let { dfh, token } = this.props;
+      let { dfh, token, shippingLocationId, } = this.props;
       let { from, to, items, pickUp, delivery } = dfh;
       let parameters = {
+        shippingLocationId,
         token,
         from,
         to,

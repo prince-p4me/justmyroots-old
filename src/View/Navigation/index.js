@@ -6,6 +6,7 @@ import LoginNavigator from "./LoginNavigator";
 import OffersScreen from "../Offers/index";
 import Refferal from "../Refferal";
 import RefferalMore from "../RefferalMore";
+import ForceUpdateScreen from '../ForceUpdate/index'
 
 const initialNavigator = createStackNavigator(
   {
@@ -14,7 +15,8 @@ const initialNavigator = createStackNavigator(
     LoginNavigator: { screen: LoginNavigator },
     Offers: { screen: OffersScreen },
     Refferal: { screen: Refferal },
-    RefferalMore: { screen: RefferalMore }
+    RefferalMore: { screen: RefferalMore },
+    ForceUpdateScreen: { screen: ForceUpdateScreen }
   },
   {
     initialRouteName: "TabNavigator",

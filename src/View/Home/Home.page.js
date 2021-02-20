@@ -10,11 +10,13 @@ import { FlatListSlider } from 'react-native-flatlist-slider';
 import colors from "../Themes/Colors";
 const height = Dimensions.get("window").height;
 const width = Dimensions.get("window").width;
+import { NavigationEvents } from 'react-navigation'
+import RNRestart from 'react-native-restart';
 
 const Home = ({ banners, bannerClicked, navigation, options, optionClicked, categories, categoryClicked }) => {
   // console.log("categories ", categories);
   return (
-    <Container>
+    <View style={{ flex: 1 }}>
       <CustomHeader title="Home" root={true} navigation={navigation} />
       <Content>
         <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
@@ -77,7 +79,7 @@ const Home = ({ banners, bannerClicked, navigation, options, optionClicked, cate
           ></FlatList>
         </ScrollView>
       </Content>
-    </Container >
+    </View >
   );
 };
 

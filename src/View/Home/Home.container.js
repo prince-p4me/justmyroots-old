@@ -7,6 +7,7 @@ import banner2Actions from "../../Store/Redux/banner2";
 import HomePage from "./Home.page";
 import Constants from "../../Services/Constant";
 import categories from '../../Fixtures/category.json';
+import { Platform } from 'react-native';
 
 class Home extends Component {
   constructor(props) {
@@ -50,7 +51,24 @@ class Home extends Component {
     return true;
   }
 
-  componentDidMount() {
+  componentDidMount = async () => {
+    let response = await fetch(Constants.API_URL + 'getCurrentBuild', {
+      method: 'GET',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      },
+    });
+    let jsonResposne = await response.json()
+    console.warn(jsonResposne)
+    if (Platform.OS == 'android') {
+      if (jsonResposne.android_version != '0.2.2')
+        this.props.navigation.navigate('ForceUpdateScreen')
+    }
+    if (Platform.OS == 'ios') {
+      if (jsonResposne.android_version != '1.1')
+        this.props.navigation.navigate('ForceUpdateScreen')
+    }
     let { navigation,
       shippingLocation,
       bannersRequest,

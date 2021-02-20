@@ -62,6 +62,7 @@ const HomeNavigator = createStackNavigator(
     ShopBy: {
       screen: ShopByOptions
     },
+
     Dfh: {
       screen: DfhScreen,
       navigationOptions: {
